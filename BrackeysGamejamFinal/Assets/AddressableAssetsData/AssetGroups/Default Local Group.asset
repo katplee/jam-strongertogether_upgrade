@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 6f4dd01eb93bc764abd9cbb99b90ff4c
+  m_SerializeEntries:
+  - m_GUID: 1160404fb5ff870409f324ff6636ef18
+    m_Address: Sprites/ENEMIES.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 32561c42902882d43a6ba1ed743b7314
+    m_Address: Sprites/DRAGONS.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4a90241c77da3e14f8081860848fc602
+    m_Address: Prefabs/DRAGON.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 20e8c484e9b0e0a40ac77fa70fcba6a1
+    m_Address: Sprites/PLAYER.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: b4d1ddcf26a0be648bd3fa68d7a36fe4, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 8a48ed1865dddc940bbe71f6af0299bc, type: 2}
+    - {fileID: 11400000, guid: 40a230b1063fb064984325307e61c1b5, type: 2}

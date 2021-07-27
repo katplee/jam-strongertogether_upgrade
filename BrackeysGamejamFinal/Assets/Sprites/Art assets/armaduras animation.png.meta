@@ -1,0 +1,812 @@
+fileFormatVersion: 2
+guid: 20e8c484e9b0e0a40ac77fa70fcba6a1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8240597013396088483
+    second: armaduras animation_0
+  - first:
+      213: -7999439418418771243
+    second: armaduras animation_1
+  - first:
+      213: -4292038507528095627
+    second: armaduras animation_2
+  - first:
+      213: -2822455687144895221
+    second: armaduras animation_3
+  - first:
+      213: 7098735848277485480
+    second: armaduras animation_4
+  - first:
+      213: 6728289931146976549
+    second: armaduras animation_5
+  - first:
+      213: 8608974357094645869
+    second: armaduras animation_6
+  - first:
+      213: 6077769421699941270
+    second: armaduras animation_7
+  - first:
+      213: -8085829126296860009
+    second: armaduras animation_8
+  - first:
+      213: 7166857970679668
+    second: armaduras animation_9
+  - first:
+      213: -1100300579626807134
+    second: armaduras animation_10
+  - first:
+      213: 5410745802862033418
+    second: armaduras animation_11
+  - first:
+      213: 7018012158944165760
+    second: armaduras animation_12
+  - first:
+      213: 8897283241988167125
+    second: armaduras animation_13
+  - first:
+      213: 4178639367082355045
+    second: armaduras animation_14
+  - first:
+      213: 1873300333080092987
+    second: armaduras animation_15
+  - first:
+      213: -928146806229040012
+    second: armaduras animation_16
+  - first:
+      213: -8131115884812448792
+    second: armaduras animation_17
+  - first:
+      213: -362310386314845904
+    second: armaduras animation_18
+  - first:
+      213: 5646567072641986023
+    second: armaduras animation_19
+  - first:
+      213: 1743931287597914575
+    second: armaduras animation_20
+  - first:
+      213: 4683320162791468567
+    second: armaduras animation_21
+  - first:
+      213: 4035401724604698707
+    second: armaduras animation_22
+  - first:
+      213: 7218065494363274448
+    second: armaduras animation_23
+  - first:
+      213: 7092725545365669071
+    second: armaduras animation_24
+  - first:
+      213: -7130755566047465800
+    second: armaduras animation_25
+  - first:
+      213: -8926596503218613038
+    second: armaduras animation_26
+  - first:
+      213: 7746713252009365313
+    second: armaduras animation_27
+  - first:
+      213: -7814166581356623139
+    second: armaduras animation_28
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: armaduras animation_0
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 648
+        width: 72
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5991674da483ad80800000000000000
+      internalID: -8240597013396088483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 648
+        width: 56
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5da44e65b384cf090800000000000000
+      internalID: -7999439418418771243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_2
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 648
+        width: 60
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5787d74b7bd9f64c0800000000000000
+      internalID: -4292038507528095627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_3
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 648
+        width: 76
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0d827da18f94d8d0800000000000000
+      internalID: -2822455687144895221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_4
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 520
+        width: 72
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a729eea4a6c38260800000000000000
+      internalID: 7098735848277485480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 520
+        width: 56
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52d5adb5b00bf5d50800000000000000
+      internalID: 6728289931146976549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_6
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 520
+        width: 60
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d60c213c098397770800000000000000
+      internalID: 8608974357094645869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_7
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 520
+        width: 76
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 693082f6613985450800000000000000
+      internalID: 6077769421699941270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_8
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 388
+        width: 96
+        height: 124
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79a819c004d59cf80800000000000000
+      internalID: -8085829126296860009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_9
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 388
+        width: 92
+        height: 124
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47f7f772836791000800000000000000
+      internalID: 7166857970679668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_10
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 388
+        width: 96
+        height: 124
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a01035d372fab0f0800000000000000
+      internalID: -1100300579626807134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_11
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 388
+        width: 96
+        height: 124
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0af68de3a4d61b40800000000000000
+      internalID: 5410745802862033418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_12
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 264
+        width: 72
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08f3d3320ecf46160800000000000000
+      internalID: 7018012158944165760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_13
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 264
+        width: 56
+        height: 108
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d59db008ff797b70800000000000000
+      internalID: 8897283241988167125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_14
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 264
+        width: 60
+        height: 108
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 569286f6d528df930800000000000000
+      internalID: 4178639367082355045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_15
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 264
+        width: 76
+        height: 108
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b312cde4abc4ff910800000000000000
+      internalID: 1873300333080092987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_16
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 136
+        width: 96
+        height: 104
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4740e43b56f8e13f0800000000000000
+      internalID: -928146806229040012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_17
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 136
+        width: 92
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ebc73aee29782f80800000000000000
+      internalID: -8131115884812448792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_18
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 136
+        width: 92
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 031e44d8f90d8faf0800000000000000
+      internalID: -362310386314845904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_19
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 136
+        width: 88
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ed2e35f5d2ac5e40800000000000000
+      internalID: 5646567072641986023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_20
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 8
+        width: 108
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc996fd2440b33810800000000000000
+      internalID: 1743931287597914575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_21
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 8
+        width: 104
+        height: 108
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71e2c90ffde7ef040800000000000000
+      internalID: 4683320162791468567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_22
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 8
+        width: 104
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 350df01fc70a00830800000000000000
+      internalID: 4035401724604698707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_23
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 8
+        width: 104
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dcf60df258bb2460800000000000000
+      internalID: 7218065494363274448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_24
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 548
+        width: 68
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc40cdcfd4c6e6260800000000000000
+      internalID: 7092725545365669071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_25
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 408
+        width: 68
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bee991d7977a0d90800000000000000
+      internalID: -7130755566047465800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_26
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 296
+        width: 60
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d4196486cb5e1480800000000000000
+      internalID: -8926596503218613038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_27
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 168
+        width: 72
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14f44daa8aad18b60800000000000000
+      internalID: 7746713252009365313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armaduras animation_28
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 36
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dda828e35e08e8390800000000000000
+      internalID: -7814166581356623139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
