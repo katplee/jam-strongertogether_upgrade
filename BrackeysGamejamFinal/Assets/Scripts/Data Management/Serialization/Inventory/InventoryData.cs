@@ -153,13 +153,3 @@ public class InventoryData
 
     #endregion
 }
-
-[System.Serializable]
-public class StoneData
-{
-    public StoneType type;
-
-    public string name;
-
-    public bool collected;
-}

@@ -1,18 +1,22 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 
 public class DP_UIDragon : UIObject, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
-    public int uploadState { get; set; } = 3;
+    public static event Action<GameObject> OnDragonPress;
 
+    private DragonData dragonData = new DragonData();
+
+    public int uploadState { get; set; } = 3;
     private DP_UIAvatar dragonAvatar;
     private DP_UIName dragonName;
     private DP_UIHP dragonHP;
     private DP_UIXP dragonXP;
     private DP_UIOpacity dragonOpacity;
-
-    private DragonData dragonData = new DragonData();
+    
+    private bool isSelected = false;
 
     //check this
     public override string Label
@@ -118,7 +122,7 @@ public class DP_UIDragon : UIObject, IPointerEnterHandler, IPointerExitHandler, 
     public void OnPointerExit(PointerEventData eventData)
     {
         //if there is a dragon selected, selected item will not change opacity
-        if (UIDragonSubPanel.Instance.IsSelected) { return; }
+        if (isSelected) { return; }
 
         UpdateOpacity(false);
     }
@@ -127,26 +131,51 @@ public class DP_UIDragon : UIObject, IPointerEnterHandler, IPointerExitHandler, 
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            UIDragonSubPanel.Instance.IsSelected = UIDragonSubPanel.Instance.IsSelected ^ true;
-            UpdateOpacity(UIDragonSubPanel.Instance.IsSelected);
+            //set boolean parameters of this object
+            isSelected = isSelected ^ true;
+            //set boolean parameters of the other dragon objects
+            OnDragonPress?.Invoke(gameObject);
 
+            //set/clear sprite to be set as avatar
             if (UIDragonSubPanel.Instance.IsSelected) { PlayerSpriteLoader.Instance.SetSelection(); }
             else { PlayerSpriteLoader.Instance.ClearSelection(); }
         }
     }
 
+    private void ToggleIsSelected(GameObject selectedDragonObject)
+    {
+        if (gameObject == selectedDragonObject)
+        {
+            UIDragonSubPanel.Instance.IsSelected = isSelected;
+        }
+        else
+        {
+            //sets everything else to false
+            isSelected = isSelected ^ isSelected;
+        }
+
+        //update opacity of dragon icon
+        UpdateOpacity(isSelected);
+    }
+
     private void SendDragonData()
     {
+        if (!isSelected) { return; }
+
+        Debug.Log(gameObject.name); //delete
+        Debug.Log(transform.GetSiblingIndex()); //delete
         FightManager.Instance.PassDragonData(dragonData);
     }
 
     private void SubscribeEvents()
     {
         FightManager.OnDragonFuse += SendDragonData;
+        OnDragonPress += ToggleIsSelected;
     }
 
     private void UnsubscribeEvents()
     {
         FightManager.OnDragonFuse -= SendDragonData;
+        OnDragonPress -= ToggleIsSelected;
     }
 }

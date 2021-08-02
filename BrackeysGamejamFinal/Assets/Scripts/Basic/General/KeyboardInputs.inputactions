@@ -1,0 +1,33 @@
+{
+    "name": "KeyboardInputs",
+    "maps": [
+        {
+            "name": "TameMenu",
+            "id": "4a681f9c-b5c9-490e-8f92-34c7250636b3",
+            "actions": [
+                {
+                    "name": "PressR",
+                    "type": "PassThrough",
+                    "id": "b5a978fe-548e-414a-b072-70721fb91e79",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ff11db2c-97cb-481f-9c55-dd6192c5dfda",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PressR",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

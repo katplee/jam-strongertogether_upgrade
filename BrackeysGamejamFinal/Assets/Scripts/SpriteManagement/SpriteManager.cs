@@ -45,10 +45,10 @@ public class SpriteManager : MonoBehaviour
 
     #region Enemy sprite manager
     private EnemySpriteLoader enemySpriteLoader;
-    private PlayerSpriteLoader playerSpriteLoader;
     #endregion
 
     #region Player sprite manager
+    private PlayerSpriteLoader playerSpriteLoader;
     private const int solo = 0;
     private const int fusedBase = 4;
     private const int fusedFire = 8;

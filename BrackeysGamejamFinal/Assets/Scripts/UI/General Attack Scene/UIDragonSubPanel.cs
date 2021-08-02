@@ -25,7 +25,7 @@ public class UIDragonSubPanel : MonoBehaviour, IPointerEnterHandler, IPointerExi
     //Interactibility-related variables
     private RectTransform rect;
     private Image image;
-    public bool IsSelected { get; set; }
+    public bool IsSelected { get; set; } //has a pet dragon selected
 
     //Position-related variables
     private Vector3 mainPanelUpperLeftPt;
@@ -36,7 +36,7 @@ public class UIDragonSubPanel : MonoBehaviour, IPointerEnterHandler, IPointerExi
     private List<DragonData> dragonList = new List<DragonData>();
     private List<GameObject> dragonPrefabsList = new List<GameObject>();
     private const string dragonPrefabAddress = "Prefabs/DRAGON.prefab";
-    private GameObject dragonPrefab;
+    public GameObject dragonPrefab; //this needs to be fixed!
 
 
     void Start()
@@ -51,6 +51,7 @@ public class UIDragonSubPanel : MonoBehaviour, IPointerEnterHandler, IPointerExi
         //retrieve interim vertical container
         interim = transform.GetChild(0);
 
+        /*
         //set the dragon prefab
         Addressables.LoadAssetAsync<GameObject>(dragonPrefabAddress).Completed += (obj) =>
         {
@@ -62,6 +63,7 @@ public class UIDragonSubPanel : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
             dragonPrefab = obj.Result;
         };
+        */
     }
 
     public void OnPointerEnter(PointerEventData eventData)

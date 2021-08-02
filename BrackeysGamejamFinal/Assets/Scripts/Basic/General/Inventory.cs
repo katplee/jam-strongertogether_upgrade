@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//210802_KAT: not referenced in any script
+
 public class Inventory : MonoBehaviour
 {
     public static Inventory Instance { get; private set; }

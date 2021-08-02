@@ -132,7 +132,7 @@ public class Player : Element
         //BASIC STATS
 
         //if-else loop is to keep the player position set to the position before scene transitioned to the attack scene
-        if(GameManager.currentSceneName == GameManager.attackScene)
+        if (GameManager.currentSceneName == GameManager.attackScene)
         {
             playerData.position = PlayerSave.Instance.LoadPlayerData().player.position;
         }
@@ -140,7 +140,7 @@ public class Player : Element
         {
             playerData.position = transform.position;
         }
-        
+
         playerData.hp = hp;
         playerData.maxHP = maxHP;
         playerData.type = Type;
@@ -158,9 +158,6 @@ public class Player : Element
         playerData.windAttack = windAttack;
         playerData.earthAttack = earthAttack;
         playerData.baseAttack = baseAttack;
-
-        //DRAGON STATS        
-        playerData.dragons = Inventory.Instance.Dragons;
     }
 
     public override void InitializeDeserialization()
@@ -261,10 +258,11 @@ public class Player : Element
 
     public void SetParametersOnFuse(float armor)
     {
+        Debug.Log($"{armor}/{maxArmor}"); //delete
         SetStatMaximum(ref maxArmor, Armor + armor);
         Armor = Armor + armor;
     }
-    
+
     private void TESTPrintPlayerData()
     {
         string playerStats =

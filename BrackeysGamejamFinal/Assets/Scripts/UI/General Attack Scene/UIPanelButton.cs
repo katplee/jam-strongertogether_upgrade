@@ -125,7 +125,4 @@ public class UIPanelButton : UIObject, IPointerDownHandler, IPointerEnterHandler
         //compute the world point of the mouse position - discontinued
         //Vector3 mousePosition = Camera.main.ScreenToWorldPoint(eventData.position);
     }
-
-    
-
 }

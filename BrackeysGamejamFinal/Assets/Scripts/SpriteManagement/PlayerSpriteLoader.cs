@@ -110,6 +110,28 @@ public class PlayerSpriteLoader : MonoBehaviour
         animator.SetTrigger("animReady");
     }
 
+    private void SetInitialAnimation()
+    {
+        //check if there is a dragon following you
+
+        
+        //if there is a dragon following you, the starting animation should be of player fused with dragon
+
+        //if there is no dragon following you, the starting animation is the regular one
+
+    }
+
+    private void SetInitialSprite()
+    {
+        //initial sprite is always the regular one
+
+        //check if there is a dragon following you
+
+        //if there is a dragon following you, the player's sprite should eventually convert to the one fused with dragon
+
+        //if there is no dragon following you, the player's sprite will not change
+    }
+
     public void GenerateList()
     {
         Sprites = new List<Sprite>();

@@ -90,7 +90,9 @@ public class FightManager : MonoBehaviour
         {
             // METHOD CALLER: not a dragon | ELEMENT WHOSE TAKEDAMAGE METHOD IS CALLED: not a dragon
             // call format: TakeDamage(float damageAmount)
-            if (attacker.Armor == 0) { NonDragonAttackNonDragon(attacker, receiver); }
+            //if (attacker.Armor == 0) { NonDragonAttackNonDragon(attacker, receiver); }
+            NonDragonAttackNonDragon(attacker, receiver);
+
         }
 
         else if (attacker as Enemy)
@@ -156,6 +158,8 @@ public class FightManager : MonoBehaviour
 
     public void PassDragonData(DragonData dragon)
     {
+        Debug.Log(dragon); //delete
+        Debug.Log(dragon.hp); //delete
         //set the 
         Player.SetParametersOnFuse(dragon.hp);
 
