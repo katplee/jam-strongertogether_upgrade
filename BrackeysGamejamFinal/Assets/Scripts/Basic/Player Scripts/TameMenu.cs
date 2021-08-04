@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//210804_KAT: not referenced in any script
+
 public class TameMenu : MonoBehaviour
 {
     public Player player;
@@ -28,7 +30,7 @@ public class TameMenu : MonoBehaviour
 
     void Start()
     {
-        menu.SetActive(false);
+        //menu.SetActive(false);
         //UpdateMenu();
     }
 
@@ -83,21 +85,23 @@ public class TameMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.R))
         {
             if (isChoosing)
             {
                 menu.SetActive(false);
                 isChoosing = false;
-                player.isChoosingTame = false;
+                player.IsChoosingTame = false;
             }
             else
             {
                 menu.SetActive(true);
                 isChoosing = true;
-                player.isChoosingTame = true;
+                player.IsChoosingTame = true;
             }            
         }
+        */
     }
 
     public void chooseDragon(int i)

@@ -57,7 +57,7 @@ public class TamingReqs : MonoBehaviour
                 //change dragon data property isTame to true
                 dragon.TameDragon();
                 dragon.ResaveThisDragon();
-                
+
                 //destroy the dragon's game object
                 Destroy(gameObject);
             }

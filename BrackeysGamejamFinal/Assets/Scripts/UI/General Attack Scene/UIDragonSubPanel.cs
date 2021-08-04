@@ -1,9 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.EventSystems;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UI;
+
+//ERRORS:
+//Assertion failed on expression: 'ShouldRunBehaviour()'
+//Comes up whenever the addressables class comes up.
+//Alternative: 
 
 public class UIDragonSubPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
 {
@@ -34,10 +42,18 @@ public class UIDragonSubPanel : MonoBehaviour, IPointerEnterHandler, IPointerExi
     //Dragon-listing-related variables
     private Transform interim; //refers to the vertical container in-between this and the dragon list
     private List<DragonData> dragonList = new List<DragonData>();
-    private List<GameObject> dragonPrefabsList = new List<GameObject>();
-    private const string dragonPrefabAddress = "Prefabs/DRAGON.prefab";
-    public GameObject dragonPrefab; //this needs to be fixed!
+    private int dragonPrefabsGenerated;
+    //private List<GameObject> dragonPrefabsList = new List<GameObject>();
+    //public GameObject dragonPrefab; //this needs to be fixed!
 
+    //Addressables-related variables
+    private const string dragonPrefabAddress = "Prefabs/DRAGON.prefab";
+    private Dictionary<AssetReference, List<GameObject>> spawnedDragonMenus =
+        new Dictionary<AssetReference, List<GameObject>>();
+    private Dictionary<AssetReference, Queue<DragonData>> queuedSpawnRequests =
+        new Dictionary<AssetReference, Queue<DragonData>>();
+    private Dictionary<string, KeyValuePair<AssetReference, AsyncOperationHandle<GameObject>>> asyncOperationHandles =
+        new Dictionary<string, KeyValuePair<AssetReference, AsyncOperationHandle<GameObject>>>();
 
     void Start()
     {
@@ -107,45 +123,107 @@ public class UIDragonSubPanel : MonoBehaviour, IPointerEnterHandler, IPointerExi
         if (dragonList == null) { return; }
 
         if (dragonList.Count == 0) { return; }
-
+        
+        if (dragonPrefabsGenerated == dragonList.Count) { return; }
+        
         //instantiate enough dragon prefabs for each dragon on list
         for (int i = 0; i < dragonList.Count; i++)
         {
-            if (dragonPrefabsList.Count == dragonList.Count) { return; }
-
-            GameObject go = Instantiate(dragonPrefab, interim);
-            dragonPrefabsList.Add(go);
-        }
-
-        StartCoroutine(UpdateDragonList());
-    }
-
-    IEnumerator UpdateDragonList()
-    {
-        //distribute info to each instantiated dragon prefab
-        for (int i = 0; i < dragonPrefabsList.Count; i++)
-        {
-            DP_UIDragon dragon = dragonPrefabsList[i].GetComponent<DP_UIDragon>();
-            if (dragon.uploadState != 0) { yield return null; }
-            dragon.UpdateDragon(dragonList[i]);
+            Spawn(dragonPrefabAddress, dragonList[i]);
         }
     }
-
-    public void GenerateSubPanel(Vector3 mousePosition)
+     
+    private void Spawn(string assetAddress, DragonData dragonData)
     {
-        Vector3 subPanelUpperLeftPoint = MousePosition(mousePosition) - ParentUpperLeftPoint();
-        RectTransform subPanel = GetComponent<RectTransform>();
-
-        if (mousePosition.x > 0)
+        if (asyncOperationHandles.ContainsKey(assetAddress))
         {
-            subPanel.pivot = new Vector2(1f, 1f);
-        }
-        else
-        {
-            subPanel.pivot = new Vector2(0f, 1f);
+            if (asyncOperationHandles[assetAddress].Value.IsDone)
+            {
+                SpawnDragonMenuFromLoadedReference(asyncOperationHandles[assetAddress].Key, dragonData);
+            }
+            else
+            {
+                EnqueueSpawnForAfterLoading(asyncOperationHandles[assetAddress].Key, dragonData);
+            }
+            return;
         }
 
-        subPanel.anchoredPosition = subPanelUpperLeftPoint;
+        LoadAndSpawnAssetReference(assetAddress, dragonData);
+    }
+
+    private void EnqueueSpawnForAfterLoading(AssetReference assetReference, DragonData dragonData)
+    {
+        if(queuedSpawnRequests.ContainsKey(assetReference) == false)
+        {
+            queuedSpawnRequests[assetReference] = new Queue<DragonData>();
+        }
+        queuedSpawnRequests[assetReference].Enqueue(dragonData);
+    }
+
+    private void LoadAndSpawnAssetReference(string assetAddress, DragonData dragonData)
+    {
+        AssetReference assetReference = new AssetReference(assetAddress);
+        var op = Addressables.LoadAssetAsync<GameObject>(assetReference);
+        asyncOperationHandles[assetAddress] = 
+            new KeyValuePair<AssetReference, AsyncOperationHandle<GameObject>>(assetReference, op);
+        op.Completed += (obj) =>
+        {
+            SpawnDragonMenuFromLoadedReference(assetReference, dragonData);
+            
+            if (queuedSpawnRequests.ContainsKey(assetReference))
+            {
+                while(queuedSpawnRequests[assetReference]?.Any() == true)
+                {
+                    DragonData queuedDragonData = queuedSpawnRequests[assetReference].Dequeue();
+                    SpawnDragonMenuFromLoadedReference(assetReference, queuedDragonData);
+                }
+            }            
+        };
+    }
+
+    private void SpawnDragonMenuFromLoadedReference(AssetReference assetReference, DragonData dragonData)
+    {
+        assetReference.InstantiateAsync(interim).Completed += (asyncOpHandle) =>
+        {
+            if (spawnedDragonMenus.ContainsKey(assetReference) == false)
+            {
+                spawnedDragonMenus[assetReference] = new List<GameObject>();
+            }
+
+            spawnedDragonMenus[assetReference].Add(asyncOpHandle.Result);
+            DP_UIDragon dragon = asyncOpHandle.Result.GetComponent<DP_UIDragon>();
+            StartCoroutine(UpdateDragonList(dragonData, dragon));
+            dragonPrefabsGenerated++;
+            var notify = asyncOpHandle.Result.AddComponent<UIDestroyNotif>();
+            notify.Destroyed += Remove;
+            notify.AssetReference = assetReference;
+        };
+    }
+
+    IEnumerator UpdateDragonList(DragonData dragonData, DP_UIDragon dragon)
+    {
+        if (dragon.uploadState != 0) { yield return null; }
+        dragon.UpdateDragon(dragonData);
+    }
+
+    private void Remove(AssetReference assetReference, UIDestroyNotif notif)
+    {
+        Addressables.ReleaseInstance(notif.gameObject);
+
+        spawnedDragonMenus[assetReference].Remove(notif.gameObject);
+
+        if(spawnedDragonMenus[assetReference].Count() == 0)
+        {
+            AsyncOperationHandle<GameObject> asyncOpHandle = asyncOperationHandles.Where(a => a.Value.Key == assetReference).FirstOrDefault().Value.Value;
+            string assetAddress = asyncOperationHandles.Where(a => a.Value.Key == assetReference).FirstOrDefault().Key;
+
+            if (asyncOpHandle.IsValid())
+            {
+                Addressables.Release(asyncOpHandle);
+            }
+
+            asyncOperationHandles.Remove(assetAddress);
+        }
     }
 
     public void ClearSubPanel()
@@ -155,7 +233,7 @@ public class UIDragonSubPanel : MonoBehaviour, IPointerEnterHandler, IPointerExi
             Destroy(child.gameObject);
         }
 
-        dragonPrefabsList.Clear();
+        dragonPrefabsGenerated = 0;
     }
 
     public void PassDragonList(List<DragonData> list)
@@ -188,4 +266,63 @@ public class UIDragonSubPanel : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
         return gameObject.activeSelf;
     }
+
+    public void GenerateSubPanel(Vector3 mousePosition)
+    {
+        Vector3 subPanelUpperLeftPoint = MousePosition(mousePosition) - ParentUpperLeftPoint();
+        RectTransform subPanel = GetComponent<RectTransform>();
+
+        if (mousePosition.x > 0)
+        {
+            subPanel.pivot = new Vector2(1f, 1f);
+        }
+        else
+        {
+            subPanel.pivot = new Vector2(0f, 1f);
+        }
+
+        subPanel.anchoredPosition = subPanelUpperLeftPoint;
+    }
+
+    /*//DELETED PARTS
+    
+    public void PrepareForDragonListGeneration()
+    {
+        if (dragonList == null) { return; }
+
+        if (dragonList.Count == 0) { return; }
+        
+        //instantiate enough dragon prefabs for each dragon on list
+        for (int i = 0; i < dragonList.Count; i++)
+        {
+            if (dragonPrefabsList.Count == dragonList.Count) { return; }
+
+            GameObject go = Instantiate(dragonPrefab, interim);
+            dragonPrefabsList.Add(go);
+        }
+
+        StartCoroutine(UpdateDragonList());
+    }
+
+    IEnumerator UpdateDragonList()
+    {
+        //distribute info to each instantiated dragon prefab
+        for (int i = 0; i < dragonPrefabsList.Count; i++)
+        {
+            DP_UIDragon dragon = dragonPrefabsList[i].GetComponent<DP_UIDragon>();
+            if (dragon.uploadState != 0) { yield return null; }
+            dragon.UpdateDragon(dragonList[i]);
+        }
+    }
+
+    public void ClearSubPanel()
+    {
+        foreach (Transform child in interim)
+        {
+            Destroy(child.gameObject);
+        }
+
+        dragonPrefabsList.Clear();
+    }
+    */
 }

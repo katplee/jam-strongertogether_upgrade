@@ -19,6 +19,8 @@ public class PetDragon : Dragon
 
     private void Start()
     {
+        SetDragonTypeWeakness();
+
         rb2d = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player");
         rec = target.transform.position;

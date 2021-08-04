@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6916317780019802160}
   m_Layer: 0
   m_Name: waterD
-  m_TagString: Untagged
+  m_TagString: WaterDragon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,24 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfcbb9582335b6846b2459ab6b6e8e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dType: 1
-  hp: 0
-  armor: 0
-  remainder: 0
-  damageAmount: 0
-  weakness: 0
-  weaknessFactor: 2
-  fireAttack: 0
-  waterAttack: 0
-  windAttack: 0
-  earthAttack: 0
-  maxHP: 100
-  maxArmor: 0
-  dragonImmunity: 0.5
-  xpPerMinute: 10
-  xpPerWonFight: 120
-  xpPerLvl: 100
-  maxLvl: 5
   tamingReqs: {fileID: 0}
   speed: 0
   detect: 0

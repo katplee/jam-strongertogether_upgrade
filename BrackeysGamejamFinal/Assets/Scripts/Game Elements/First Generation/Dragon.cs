@@ -189,7 +189,7 @@ public class Dragon : Element
         InventorySave.Instance.SaveInventoryData();
     }
 
-    private void SetDragonTypeWeakness()
+    protected void SetDragonTypeWeakness()
     {
         string tag = gameObject.tag;
 

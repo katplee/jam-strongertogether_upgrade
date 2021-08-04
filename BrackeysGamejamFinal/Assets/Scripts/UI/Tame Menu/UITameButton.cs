@@ -11,7 +11,16 @@ public class UITameButton : MonoBehaviour
     private InventoryData inventory = new InventoryData();
     private DragonType type;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        SubscribeEvents();
+    }
+
+    private void OnDestroy()
+    {
+        UnsubscribeEvents();
+    }
+
     void Start()
     {
         button = GetComponent<Button>();
@@ -19,15 +28,16 @@ public class UITameButton : MonoBehaviour
         //set the type of dragon in the panel tile
         SetDragonType();
 
-        //set the interactability of the button based on the inventory
-        InventorySave inventorySave = InventorySave.Instance.LoadInventoryData();
-        inventory = inventorySave.inventory;
-
+        //do not show dragon icon if no tamed dragons of the type has been tamed
         SetInteractability();
     }
 
     private void SetInteractability()
-    {
+    { 
+        //set the interactability of the button
+        InventorySave inventorySave = InventorySave.Instance.LoadInventoryData();
+        inventory = inventorySave.inventory;
+
         if (inventory.CountTamedDragons(type) > 0)
         {
             gameObject.SetActive(true);
@@ -43,5 +53,15 @@ public class UITameButton : MonoBehaviour
         int found = tag.IndexOf("Dragon");
         string element = tag.Substring(0, found).ToUpper();
         type = (DragonType)Enum.Parse(typeof(DragonType), element);
+    }
+
+    private void SubscribeEvents()
+    {
+        UITameMenu.OnTameMenuDisplay += SetInteractability;
+    }
+
+    private void UnsubscribeEvents()
+    {
+        UITameMenu.OnTameMenuDisplay -= SetInteractability;
     }
 }

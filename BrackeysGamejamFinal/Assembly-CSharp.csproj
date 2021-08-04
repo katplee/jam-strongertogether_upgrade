@@ -149,11 +149,13 @@
     <Compile Include="Assets\Scripts\UI\Element HUD\UIName.cs" />
     <Compile Include="Assets\Scripts\UI\Element HUD\UITransform.cs" />
     <Compile Include="Assets\Scripts\UI\General Attack Scene\UIBattleHUD.cs" />
+    <Compile Include="Assets\Scripts\UI\General Attack Scene\UIDestroyNotif.cs" />
     <Compile Include="Assets\Scripts\UI\General Attack Scene\UIDragonPanel.cs" />
     <Compile Include="Assets\Scripts\UI\General Attack Scene\UIDragonSubPanel.cs" />
     <Compile Include="Assets\Scripts\UI\General Attack Scene\UIObject.cs" />
     <Compile Include="Assets\Scripts\UI\General Attack Scene\UIPanelButton.cs" />
     <Compile Include="Assets\Scripts\UI\Tame Menu\UITameButton.cs" />
+    <Compile Include="Assets\Scripts\UI\Tame Menu\UITameMenu.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\LeanTween\ReadMe.txt" />

@@ -8,24 +8,29 @@ public class KeyboardInputController : MonoBehaviour
 {
     private KeyboardInputs keyboardInputs;
 
+    //Game objects with input controls
+
     private void Awake()
     {
         keyboardInputs = new KeyboardInputs();
+    }
+
+    private void Start()
+    {
     }
 
     private void OnEnable()
     {
         keyboardInputs.Enable();
 
+        //press R to toggle the tame menu on and off
         keyboardInputs.TameMenu.PressR.performed += ShowTameMenu;
-        keyboardInputs.TameMenu.PressR.Enable();
     }
-
-    
 
     private void ShowTameMenu(InputAction.CallbackContext obj)
     {
-        Debug.Log("helloooo");
+        UITameMenu.Instance.UpdateTameMenuButtons();
+        UITameMenu.Instance.ToggleVisibility();
     }
 
     private void OnDisable()

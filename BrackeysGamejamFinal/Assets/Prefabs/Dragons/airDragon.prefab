@@ -514,7 +514,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c856a09954c37747ad74460ff2c70bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  code: 
   tamingReqs: {fileID: 218342346092118697}
 --- !u!114 &218342346092118697
 MonoBehaviour:
@@ -529,7 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pStones: 2
-  pStonesReq: {fileID: 0}
+  pStonesReq: {fileID: 218342345620233322}
   dragon: {fileID: 218342346092118698}
   reqText: {fileID: 218342345372630603}
   reqStone: {fileID: -1377832561413711059, guid: 1f5be065c99c31a4c8098ec90069fa99,

@@ -41,6 +41,7 @@ public class Player : Element
 
     #region General Parameters
     private Rigidbody2D rb2d;
+    public bool IsChoosingTame { get; set; } = false;
     #endregion
 
     #region Animation/Movement Parameters
@@ -55,7 +56,6 @@ public class Player : Element
     private PlayerData playerData;
     #endregion
 
-    public bool isChoosingTame = false;
 
     protected override void Awake()
     {
@@ -192,8 +192,12 @@ public class Player : Element
     private void Move()
     {
         if (GameManager.currentSceneName == GameManager.attackScene) { return; }
+        
+        //player is not allowed to move when choosing from the tame menu
+        if (IsChoosingTame) { return; }
 
-        if (isChoosingTame)
+        /*
+        if (IsChoosingTame)
         {
             if (rb2d.velocity.magnitude != 0)
             {
@@ -201,6 +205,7 @@ public class Player : Element
             }
             return;
         }
+        */
 
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");

@@ -33,6 +33,26 @@ MonoBehaviour:
     m_Address: Sprites/PLAYER.png
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 303cdc82ab7cf594da62cfdb32bc4590
+    m_Address: Prefabs/FLY_AIR.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2c2c54740198c8346aa5bc01cef55164
+    m_Address: Prefabs/FLY_BASE.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 932641f89c919b9448389b048c1f3090
+    m_Address: Prefabs/FLY_EARTH.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f1d48d47b33c8e74b9f8751b558bd174
+    m_Address: Prefabs/FLY_FIRE.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cd1deae7a4f0e49488408978d75658f5
+    m_Address: Prefabs/FLY_WATER.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b4d1ddcf26a0be648bd3fa68d7a36fe4, type: 2}
   m_SchemaSet:

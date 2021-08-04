@@ -108,10 +108,6 @@ public class UIPanelButton : UIObject, IPointerDownHandler, IPointerEnterHandler
 
         UIDragonSubPanel.Instance.ClearSubPanel();
 
-        //make subpanel active/inactive
-        //bool newButton = !(rect.position == currentSubPanelPosition);
-        UIDragonSubPanel.Instance.ToggleInteractability(true);
-
         //change the static variable to the new button
         currentSubPanelPosition = rect.position;
 
@@ -121,6 +117,10 @@ public class UIPanelButton : UIObject, IPointerDownHandler, IPointerEnterHandler
         //send the world point of the center of the panel button to generate the subpanel
         Vector3 subPanelWithAllowance = rect.position + new Vector3(0f, -0.9f, 0f);
         UIDragonSubPanel.Instance.GenerateSubPanel(subPanelWithAllowance);
+
+        //make subpanel active/inactive
+        //bool newButton = !(rect.position == currentSubPanelPosition);
+        UIDragonSubPanel.Instance.ToggleInteractability(true);
 
         //compute the world point of the mouse position - discontinued
         //Vector3 mousePosition = Camera.main.ScreenToWorldPoint(eventData.position);
