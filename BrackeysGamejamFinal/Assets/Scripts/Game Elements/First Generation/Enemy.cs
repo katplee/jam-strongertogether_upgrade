@@ -213,7 +213,7 @@ public class Enemy : Element
         EnemySave enemySave = EnemySave.Instance.LoadEnemyData();
         gameObject.name = enemySave.lastEnemy.name;
         InitializeDeserialization();
-        SpriteManager.Instance.AssignRefIndex(spriteIndex);
+        EnemySpriteManager.Instance.AssignRefIndex(spriteIndex);
     }
 
     /*

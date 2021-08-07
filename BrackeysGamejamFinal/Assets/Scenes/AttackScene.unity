@@ -497,6 +497,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1547450738}
     m_Modifications:
+    - target: {fileID: 1887522532833673751, guid: b4e31d36be3c8a643b940d826ec891cb,
+        type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887522532833673751, guid: b4e31d36be3c8a643b940d826ec891cb,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6283360413482932523, guid: b4e31d36be3c8a643b940d826ec891cb,
         type: 3}
       propertyPath: m_Name
@@ -1098,8 +1108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c786b17792fd85d4a9865c841f103eef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragonPrefab: {fileID: 5279770283727655734, guid: 4a90241c77da3e14f8081860848fc602,
-    type: 3}
 --- !u!1 &765056979
 GameObject:
   m_ObjectHideFlags: 0
@@ -2772,6 +2780,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1394770985}
   - component: {fileID: 1394770986}
+  - component: {fileID: 1394770987}
   m_Layer: 0
   m_Name: SpriteManager
   m_TagString: Untagged
@@ -2805,7 +2814,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b01c5f94b98ab4bbea4e4ff118c687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refIndex: 0
+--- !u!114 &1394770987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394770984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf1a54ed0f888f49bf74f412cbe5403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1402721317
 GameObject:
   m_ObjectHideFlags: 0

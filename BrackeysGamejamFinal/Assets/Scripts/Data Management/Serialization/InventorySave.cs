@@ -61,6 +61,11 @@ public class InventorySave
         list[index] = dragon;
     }
 
+    public void AssignFlyingDragonIndex(int dragonIndex)
+    {
+        inventory.AssignFlyingDragonIndex(dragonIndex);
+    }
+
     #endregion
 
     #region Stones

@@ -123,6 +123,9 @@ public class SerializationCommander : MonoBehaviour
 
         //save the position of the player
         Player.Instance.AssignPlayer();
+
+        //save the inventory
+        InventorySave.Instance.SaveInventoryData();
     }
 
     private void B_AToBSerialization()

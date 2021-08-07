@@ -141,9 +141,9 @@ public class FightManager : MonoBehaviour
     {
         //erased parameter: dragondata?
         //must assign the refIndex needed in the sprite manager
-        SpriteManager.Instance.AssignRefIndex(dragonToFuseIndex);
-        SpriteManager.Instance.LoadAndAssign("Player");
-        
+        PlayerSpriteManager.Instance.AssignRefIndex(dragonToFuseIndex);
+        PlayerSpriteManager.Instance.LoadAndAssign();
+
         //change avatar of player
         //SpriteRenderer spriteRenderer = PGO.GetComponent<SpriteRenderer>();
         //spriteRenderer.sprite;

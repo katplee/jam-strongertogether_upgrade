@@ -34,16 +34,16 @@ public class UITameMenu : MonoBehaviour
     #region Addresses
     private const string flyBaseDragonPrefabAddress = "Prefabs/FLY_BASE.prefab";
     private const string flyFireDragonPrefabAddress = "Prefabs/FLY_FIRE.prefab";
-    private const string flyAirDragonPrefabAddress = "Prefabs/FLY_AIR.prefab";
     private const string flyWaterDragonPrefabAddress = "Prefabs/FLY_WATER.prefab";
     private const string flyEarthDragonPrefabAddress = "Prefabs/FLY_EARTH.prefab";
+    private const string flyAirDragonPrefabAddress = "Prefabs/FLY_AIR.prefab";
     private List<string> addressList = new List<string>()
     {
         flyBaseDragonPrefabAddress,
         flyFireDragonPrefabAddress,
-        flyAirDragonPrefabAddress,
         flyWaterDragonPrefabAddress,
-        flyEarthDragonPrefabAddress
+        flyEarthDragonPrefabAddress,
+        flyAirDragonPrefabAddress
     };
     #endregion
     private Dictionary<string, KeyValuePair<AssetReference, AsyncOperationHandle<GameObject>>> asyncOperationHandles =
@@ -124,6 +124,11 @@ public class UITameMenu : MonoBehaviour
         asyncOperationHandles.Clear();
     }
 
+    private void AssignFlyingDragonIndex()
+    {
+        InventorySave.Instance.AssignFlyingDragonIndex(flyingDragonIndex);
+    }
+
     private void HideFlyingDragon()
     {
         flyingDragonIndex = 0;
@@ -146,7 +151,14 @@ public class UITameMenu : MonoBehaviour
         }
 
         player.IsChoosingTame = isChoosing;
-        if (!isChoosing) { ClearReferences(); }
+        if (!isChoosing)
+        {
+            //prepare for possible transition to attack scene
+            AssignFlyingDragonIndex();
+
+            //clear memory of async operation handles
+            ClearReferences(); 
+        }
     }
 
     public void UpdateTameMenuButtons()

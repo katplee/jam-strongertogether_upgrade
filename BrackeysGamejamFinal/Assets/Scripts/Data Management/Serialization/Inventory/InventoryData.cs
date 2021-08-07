@@ -14,6 +14,7 @@ public class InventoryData
 
     //DRAGONS
     public int dragons;
+    public int flyingDragonIndex;
 
     //QUANTITY PER TYPE
     public List<DragonData> baseDragons = new List<DragonData>();
@@ -87,6 +88,11 @@ public class InventoryData
     {
         List<DragonData> list = ChooseDragonList(dragon.dType);
         list.Add(dragon);
+    }
+
+    public void AssignFlyingDragonIndex(int dragonIndex)
+    {
+        flyingDragonIndex = dragonIndex;
     }
 
     #endregion
