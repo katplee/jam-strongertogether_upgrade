@@ -21,10 +21,31 @@ public class UIValue : UIObject
         }
     }
 
-
-
     public void ChangeText(Element element)
     {
-        text.text = value;
+        string paramName = SetParameterName();
+        
+        switch (paramName)
+        {
+            case "hp":
+                element.NormalHP(out string hpString);
+                text.text = hpString;
+                break;
+
+            case "armor":
+                element.NormalHP(out string armorString);
+                text.text = armorString;
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    private string SetParameterName()
+    {
+        int found = name.IndexOf(" Value");
+        string paramName = name.Substring(0, found).ToLower();
+        return paramName;
     }
 }

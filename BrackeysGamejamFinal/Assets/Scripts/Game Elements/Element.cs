@@ -213,19 +213,29 @@ public abstract class Element : MonoBehaviour
         return damageAmount;
     }
 
-    public float NormalHP()
+    public float NormalHP(out string valueString)
     {
-        if (maxHP == 0) { return 0; }
+        if (maxHP == 0)
+        {
+            valueString = "0/0";
+            return 0;
+        }
 
         float normalHP = hp / maxHP;
+        valueString = $"{hp}/{maxHP}";
         return normalHP;
     }
 
-    public float NormalArmor()
+    public float NormalArmor(out string valueString)
     {
-        if(maxArmor == 0) { return 0; }
+        if(maxArmor == 0) 
+        {
+            valueString = "0/0";
+            return 0;
+        }
 
         float normalArmor = Armor / maxArmor;
+        valueString = $"{Armor}/{maxArmor}";
         return normalArmor;
     }
 }

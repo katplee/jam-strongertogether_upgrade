@@ -731,10 +731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32a4411f9dae6264c804662a3477f6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elemName: {fileID: 0}
-  elemLevel: {fileID: 0}
-  elemHP: {fileID: 0}
-  elemArmor: {fileID: 0}
 --- !u!1 &9128487964010845473
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,6 +742,7 @@ GameObject:
   - component: {fileID: 9128487964010845472}
   - component: {fileID: 9128487964010845478}
   - component: {fileID: 9128487964010845479}
+  - component: {fileID: 6705465310694678236}
   m_Layer: 5
   m_Name: HP Bar
   m_TagString: Untagged
@@ -799,7 +796,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7be18f8396d14dd4a863e8f16a674b49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3721adafa863424c8da46cfd4b3c971, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -809,6 +806,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6705465310694678236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9128487964010845473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8965813b2161c4a81676ca110ef194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9128487964027287288
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,6 +829,7 @@ GameObject:
   - component: {fileID: 9128487964027287295}
   - component: {fileID: 9128487964027287293}
   - component: {fileID: 9128487964027287294}
+  - component: {fileID: 4852174726783097468}
   m_Layer: 5
   m_Name: Armor Value
   m_TagString: Untagged
@@ -943,6 +953,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4852174726783097468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9128487964027287288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6030556a9fe84944db6aad1b848d4dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9128487964421660555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,6 +1110,7 @@ GameObject:
   - component: {fileID: 9128487964513004250}
   - component: {fileID: 9128487964513004248}
   - component: {fileID: 9128487964513004249}
+  - component: {fileID: 614080113689029322}
   m_Layer: 5
   m_Name: Armor Bar
   m_TagString: Untagged
@@ -1141,7 +1164,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7be18f8396d14dd4a863e8f16a674b49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3721adafa863424c8da46cfd4b3c971, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1151,6 +1174,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &614080113689029322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9128487964513004251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60540edd4ffae4147882ec406dd1a517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9128487964913539192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,6 +1197,7 @@ GameObject:
   - component: {fileID: 9128487964913539199}
   - component: {fileID: 9128487964913539197}
   - component: {fileID: 9128487964913539198}
+  - component: {fileID: 1430793943996973238}
   m_Layer: 5
   m_Name: HP Value
   m_TagString: Untagged
@@ -1285,3 +1321,15 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1430793943996973238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9128487964913539192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6030556a9fe84944db6aad1b848d4dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

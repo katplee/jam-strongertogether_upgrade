@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -6,6 +7,8 @@ using UnityEngine.UI;
 
 public class UIBattleHUD : UIObject
 {
+    private static event Action<Element> OnHUDUpdate;
+
     private UIName elemName;
     private UILevel elemLevel;
     private UIHP elemHP;
@@ -21,6 +24,8 @@ public class UIBattleHUD : UIObject
     {
         Debug.Log($"{gameObject.name} setting...");
 
+        UpdateHUD(Player.Instance);
+
         //this method will only be called in the attack scene
         if (GameManager.currentSceneName != GameManager.attackScene) { return; }
 
@@ -32,8 +37,9 @@ public class UIBattleHUD : UIObject
     {
         if (elemName != null) { elemName.ChangeText(element.Type.ToString()); }
         //elemLevel.text = "Lvl " + element.armor.ToString();
-        if (elemArmor != null) { elemArmor.ChangeFillAmount(element.NormalArmor()); }
-        if (elemHP != null) { elemHP.ChangeFillAmount(element.NormalHP()); }
+        if (elemArmor != null) { elemArmor.ChangeFillAmount(element.NormalArmor(out _)); }
+        if (elemHP != null) { elemHP.ChangeFillAmount(element.NormalHP(out _)); }
+        if (elemValue != null) { OnHUDUpdate?.Invoke(element); }
     }
 
     public void UpdateHPArmor<T>(float hp, float armor, float maxHP, float maxArmor)
@@ -103,7 +109,9 @@ public class UIBattleHUD : UIObject
                 break;
 
             case "UIValue":
-                SetValue(UIObject as UIValue, name);
+                UIValue UIValue = UIObject as UIValue;
+                SetValue(UIValue, name);
+                OnHUDUpdate += UIValue.ChangeText;
                 break;
         }
     }
