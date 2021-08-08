@@ -13,7 +13,7 @@ public class PlayerSpriteManager : MonoBehaviour
      * spriteLoader
      */
 
-    public static event Action<bool> OnTransferComplete;
+    public static event Action<int> OnTransferComplete;
 
     private static PlayerSpriteManager instance;
     public static PlayerSpriteManager Instance
@@ -32,7 +32,7 @@ public class PlayerSpriteManager : MonoBehaviour
     private const string playerSpriteSheetAddress = "Sprites/PLAYER.png";
     #endregion
 
-    //public Sprite[] spriteSheet;
+    public Sprite[] spriteSheet;
     private int refIndex = 0;
     private Queue<Sprite> animSprites = new Queue<Sprite>();
     private int animKeyFrameCount;
@@ -61,10 +61,11 @@ public class PlayerSpriteManager : MonoBehaviour
     };
     #endregion
 
-    public void LoadAndAssign(bool isBase = false)
+    public void LoadAndAssign()
     {
-        InputParameters(isBase);
+        InputParameters();
 
+        /*
         Addressables.LoadAssetAsync<IList<Sprite>>(sheetAddress).Completed += (obj) =>
         {
             if (obj.Result == null)
@@ -77,29 +78,43 @@ public class PlayerSpriteManager : MonoBehaviour
             {
                 if (i == animAvailableKeyFrames) { i = 0; }
 
-                animSprites.Enqueue(obj.Result[(refIndex / animAvailableKeyFrames) * animAvailableKeyFrames + i]);
+                animSprites.Enqueue(obj.Result[spriteList[refIndex] * animAvailableKeyFrames + i]);
 
                 if (animSprites.Count == animKeyFrameCount) { break; }
             }
 
             //assign sprites for animation
             AssignPlayerSprites();
-            OnTransferComplete?.Invoke(isBase);
+            OnTransferComplete?.Invoke(refIndex);
         };
+        */
+
+        for (int i = 0; i < animKeyFrameCount; i++)
+        {
+            if (i == animAvailableKeyFrames) { i = 0; }
+
+            animSprites.Enqueue(spriteSheet[spriteList[refIndex] * animAvailableKeyFrames + i]);
+
+            if (animSprites.Count == animKeyFrameCount) { break; }
+        }
+
+        //assign sprites for animation
+        AssignPlayerSprites();
+        OnTransferComplete?.Invoke(refIndex);
     }
 
-    private void InputParameters(bool isBase = false)
+    private void InputParameters()
     {
         sheetAddress = playerSpriteSheetAddress;
         animAvailableKeyFrames = 4;
-        animKeyFrameCount = isBase ? 1 : 5;
+        animKeyFrameCount = 1;
     }
 
     public void AssignRefIndex(int index)
     {
         //called in BattleStateStart for starting player animation preview
         //called in FightManager for player animation preview
-        refIndex = spriteList[index] * animAvailableKeyFrames;
+        refIndex = index;
     }
 
     public void AssignPlayerSpriteLoader(PlayerSpriteLoader loader)

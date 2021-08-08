@@ -497,6 +497,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1547450738}
     m_Modifications:
+    - target: {fileID: 1259100322593549534, guid: b4e31d36be3c8a643b940d826ec891cb,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1259100322593549534, guid: b4e31d36be3c8a643b940d826ec891cb,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1259100322593549534, guid: b4e31d36be3c8a643b940d826ec891cb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8240597013396088483, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1,
+        type: 3}
+    - target: {fileID: 1259100322593549534, guid: b4e31d36be3c8a643b940d826ec891cb,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1887522532833673751, guid: b4e31d36be3c8a643b940d826ec891cb,
         type: 3}
       propertyPath: m_Avatar
@@ -1108,6 +1129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c786b17792fd85d4a9865c841f103eef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dragonPrefab: {fileID: 5279770283727655734, guid: 4a90241c77da3e14f8081860848fc602,
+    type: 3}
 --- !u!1 &765056979
 GameObject:
   m_ObjectHideFlags: 0
@@ -2779,8 +2802,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1394770985}
-  - component: {fileID: 1394770986}
   - component: {fileID: 1394770987}
+  - component: {fileID: 1394770986}
   m_Layer: 0
   m_Name: SpriteManager
   m_TagString: Untagged
@@ -2826,6 +2849,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf1a54ed0f888f49bf74f412cbe5403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteSheet:
+  - {fileID: -8240597013396088483, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: -7999439418418771243, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: -4292038507528095627, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: -2822455687144895221, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: 7098735848277485480, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: 6728289931146976549, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: 8608974357094645869, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: 6077769421699941270, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: -8085829126296860009, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: 7166857970679668, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: -1100300579626807134, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: 5410745802862033418, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: 7018012158944165760, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: 8897283241988167125, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: 4178639367082355045, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: 1873300333080092987, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: -928146806229040012, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: -8131115884812448792, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: -362310386314845904, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: 5646567072641986023, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: 1743931287597914575, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: 4683320162791468567, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: 4035401724604698707, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: 7218065494363274448, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: 7092725545365669071, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: -7130755566047465800, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: -8926596503218613038, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: 7746713252009365313, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
+  - {fileID: -7814166581356623139, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1, type: 3}
 --- !u!1 &1402721317
 GameObject:
   m_ObjectHideFlags: 0

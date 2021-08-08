@@ -6,10 +6,11 @@ using UnityEngine.UI;
 
 public class UIBattleHUD : UIObject
 {
-    public UIName elemName; //convert to private
-    public UILevel elemLevel; //convert to private
-    public UIHP elemHP; //convert to private
-    public UIArmor elemArmor; //convert to private
+    private UIName elemName;
+    private UILevel elemLevel;
+    private UIHP elemHP;
+    private UIArmor elemArmor;
+    private Dictionary<string, UIValue> elemValue = new Dictionary<string, UIValue>();
 
     public override string Label
     {
@@ -20,16 +21,19 @@ public class UIBattleHUD : UIObject
     {
         Debug.Log($"{gameObject.name} setting...");
 
+        //this method will only be called in the attack scene
+        if (GameManager.currentSceneName != GameManager.attackScene) { return; }
+
         HUDManager.Instance.DeclareThis(Label, this);
     }
 
     public void UpdateHUD<T>(T element)
         where T : Element
     {
-        elemName.ChangeText(element.Type.ToString());
+        if (elemName != null) { elemName.ChangeText(element.Type.ToString()); }
         //elemLevel.text = "Lvl " + element.armor.ToString();
-        elemArmor.ChangeFillAmount(element.NormalArmor());
-        elemHP.ChangeFillAmount(element.NormalHP());
+        if (elemArmor != null) { elemArmor.ChangeFillAmount(element.NormalArmor()); }
+        if (elemHP != null) { elemHP.ChangeFillAmount(element.NormalHP()); }
     }
 
     public void UpdateHPArmor<T>(float hp, float armor, float maxHP, float maxArmor)
@@ -67,8 +71,17 @@ public class UIBattleHUD : UIObject
         elemArmor = armor;
     }
 
+    private void SetValue(UIValue value, string name)
+    {
+        if (value == null) { throw new HUDElementInvalidException(); }
+
+        if (elemValue.ContainsKey(name)) { throw new HUDElementInvalidException(); }
+
+        elemValue.Add(name, value);
+    }
+
     //to be called from the UI object being declared
-    public void DeclareThis<T>(string element, T UIObject)
+    public void DeclareThis<T>(string element, T UIObject, string name = "")
         where T : MonoBehaviour
     {
         switch (element)
@@ -87,6 +100,10 @@ public class UIBattleHUD : UIObject
 
             case "UIArmor":
                 SetArmor(UIObject as UIArmor);
+                break;
+
+            case "UIValue":
+                SetValue(UIObject as UIValue, name);
                 break;
         }
     }

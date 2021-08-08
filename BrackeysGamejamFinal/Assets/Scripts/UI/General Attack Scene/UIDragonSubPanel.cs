@@ -42,9 +42,9 @@ public class UIDragonSubPanel : MonoBehaviour, IPointerEnterHandler, IPointerExi
     //Dragon-listing-related variables
     private Transform interim; //refers to the vertical container in-between this and the dragon list
     private List<DragonData> dragonList = new List<DragonData>();
-    private int dragonPrefabsGenerated;
-    //private List<GameObject> dragonPrefabsList = new List<GameObject>();
-    //public GameObject dragonPrefab; //this needs to be fixed!
+    //private int dragonPrefabsGenerated;
+    private List<GameObject> dragonPrefabsList = new List<GameObject>();
+    public GameObject dragonPrefab; //this needs to be fixed!
 
     //Addressables-related variables
     private const string dragonPrefabAddress = "Prefabs/DRAGON.prefab";
@@ -80,6 +80,45 @@ public class UIDragonSubPanel : MonoBehaviour, IPointerEnterHandler, IPointerExi
             dragonPrefab = obj.Result;
         };
         */
+    }
+    
+    public void PrepareForDragonListGeneration()
+    {
+        if (dragonList == null) { return; }
+
+        if (dragonList.Count == 0) { return; }
+        
+        //instantiate enough dragon prefabs for each dragon on list
+        for (int i = 0; i < dragonList.Count; i++)
+        {
+            if (dragonPrefabsList.Count == dragonList.Count) { return; }
+
+            GameObject go = Instantiate(dragonPrefab, interim);
+            dragonPrefabsList.Add(go);
+        }
+
+        StartCoroutine(UpdateDragonList());
+    }
+
+    IEnumerator UpdateDragonList()
+    {
+        //distribute info to each instantiated dragon prefab
+        for (int i = 0; i < dragonPrefabsList.Count; i++)
+        {
+            DP_UIDragon dragon = dragonPrefabsList[i].GetComponent<DP_UIDragon>();
+            if (dragon.uploadState != 0) { yield return null; }
+            dragon.UpdateDragon(dragonList[i]);
+        }
+    }
+
+    public void ClearSubPanel()
+    {
+        foreach (Transform child in interim)
+        {
+            Destroy(child.gameObject);
+        }
+
+        dragonPrefabsList.Clear();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -118,6 +157,58 @@ public class UIDragonSubPanel : MonoBehaviour, IPointerEnterHandler, IPointerExi
         return this.mousePosition;
     }
 
+
+    public void PassDragonList(List<DragonData> list)
+    {
+        dragonList = list;
+    }
+
+    public void SetDragonType(DragonType dragonType)
+    {
+
+        Type = dragonType;
+    }
+
+    public bool ToggleInteractability(bool buttonChanged)
+    {
+        if (Vector3.Magnitude(rect.localScale) == 0)
+        {
+            rect.localScale = new Vector3(1f, 1f, 1f);
+
+            gameObject.SetActive(true);
+        }
+        else if (buttonChanged)
+        {
+            gameObject.SetActive(true);
+        }
+        else
+        {
+            gameObject.SetActive(gameObject.activeSelf ^ true);
+        }
+
+        return gameObject.activeSelf;
+    }
+
+    public void GenerateSubPanel(Vector3 mousePosition)
+    {
+        Vector3 subPanelUpperLeftPoint = MousePosition(mousePosition) - ParentUpperLeftPoint();
+        RectTransform subPanel = GetComponent<RectTransform>();
+
+        if (mousePosition.x > 0)
+        {
+            subPanel.pivot = new Vector2(1f, 1f);
+        }
+        else
+        {
+            subPanel.pivot = new Vector2(0f, 1f);
+        }
+
+        subPanel.anchoredPosition = subPanelUpperLeftPoint;
+    }
+
+    #region Addressables approach
+    //Causes the Assertion failed on expression: 'ShouldRunBehaviour()' error
+    /*
     public void PrepareForDragonListGeneration()
     {
         if (dragonList == null) { return; }
@@ -132,7 +223,6 @@ public class UIDragonSubPanel : MonoBehaviour, IPointerEnterHandler, IPointerExi
             Spawn(dragonPrefabAddress, dragonList[i]);
         }
     }
-     
     private void Spawn(string assetAddress, DragonData dragonData)
     {
         if (asyncOperationHandles.ContainsKey(assetAddress))
@@ -200,12 +290,6 @@ public class UIDragonSubPanel : MonoBehaviour, IPointerEnterHandler, IPointerExi
         };
     }
 
-    IEnumerator UpdateDragonList(DragonData dragonData, DP_UIDragon dragon)
-    {
-        if (dragon.uploadState != 0) { yield return null; }
-        dragon.UpdateDragon(dragonData);
-    }
-
     private void Remove(AssetReference assetReference, UIDestroyNotif notif)
     {
         Addressables.ReleaseInstance(notif.gameObject);
@@ -226,6 +310,12 @@ public class UIDragonSubPanel : MonoBehaviour, IPointerEnterHandler, IPointerExi
         }
     }
 
+    IEnumerator UpdateDragonList(DragonData dragonData, DP_UIDragon dragon)
+    {
+        if (dragon.uploadState != 0) { yield return null; }
+        dragon.UpdateDragon(dragonData);
+    }
+
     public void ClearSubPanel()
     {
         foreach (Transform child in interim)
@@ -235,94 +325,6 @@ public class UIDragonSubPanel : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
         dragonPrefabsGenerated = 0;
     }
-
-    public void PassDragonList(List<DragonData> list)
-    {
-        dragonList = list;
-    }
-
-    public void SetDragonType(DragonType dragonType)
-    {
-
-        Type = dragonType;
-    }
-
-    public bool ToggleInteractability(bool buttonChanged)
-    {
-        if (Vector3.Magnitude(rect.localScale) == 0)
-        {
-            rect.localScale = new Vector3(1f, 1f, 1f);
-
-            gameObject.SetActive(true);
-        }
-        else if (buttonChanged)
-        {
-            gameObject.SetActive(true);
-        }
-        else
-        {
-            gameObject.SetActive(gameObject.activeSelf ^ true);
-        }
-
-        return gameObject.activeSelf;
-    }
-
-    public void GenerateSubPanel(Vector3 mousePosition)
-    {
-        Vector3 subPanelUpperLeftPoint = MousePosition(mousePosition) - ParentUpperLeftPoint();
-        RectTransform subPanel = GetComponent<RectTransform>();
-
-        if (mousePosition.x > 0)
-        {
-            subPanel.pivot = new Vector2(1f, 1f);
-        }
-        else
-        {
-            subPanel.pivot = new Vector2(0f, 1f);
-        }
-
-        subPanel.anchoredPosition = subPanelUpperLeftPoint;
-    }
-
-    /*//DELETED PARTS
-    
-    public void PrepareForDragonListGeneration()
-    {
-        if (dragonList == null) { return; }
-
-        if (dragonList.Count == 0) { return; }
-        
-        //instantiate enough dragon prefabs for each dragon on list
-        for (int i = 0; i < dragonList.Count; i++)
-        {
-            if (dragonPrefabsList.Count == dragonList.Count) { return; }
-
-            GameObject go = Instantiate(dragonPrefab, interim);
-            dragonPrefabsList.Add(go);
-        }
-
-        StartCoroutine(UpdateDragonList());
-    }
-
-    IEnumerator UpdateDragonList()
-    {
-        //distribute info to each instantiated dragon prefab
-        for (int i = 0; i < dragonPrefabsList.Count; i++)
-        {
-            DP_UIDragon dragon = dragonPrefabsList[i].GetComponent<DP_UIDragon>();
-            if (dragon.uploadState != 0) { yield return null; }
-            dragon.UpdateDragon(dragonList[i]);
-        }
-    }
-
-    public void ClearSubPanel()
-    {
-        foreach (Transform child in interim)
-        {
-            Destroy(child.gameObject);
-        }
-
-        dragonPrefabsList.Clear();
-    }
     */
+    #endregion
 }

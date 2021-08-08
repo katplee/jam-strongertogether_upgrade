@@ -153,15 +153,15 @@ public class FightManager : MonoBehaviour
 
     public void FuseDragonHP()
     {
+        if (!UIDragonSubPanel.Instance.IsSelected) { return; }
+
         OnDragonFuse?.Invoke();
     }
 
     public void PassDragonData(DragonData dragon)
     {
-        Debug.Log(dragon); //delete
-        Debug.Log(dragon.hp); //delete
         //set the 
-        Player.SetParametersOnFuse(dragon.hp);
+        Player.SetParametersOnFuse(dragon);
 
         //update the HUDs
         HUDManager.Instance.HPlayer.UpdateHUD(Player);

@@ -66,15 +66,15 @@ public class PlayerTurnState : StateMachineBehaviour
                 break;
 
             case "Fuse":
-                //change the avatar
-                //change the default animation
-                PlayerSpriteLoader.Instance.FinalizeSelection();
-
                 //change HP stats as a result of fusion with dragon
                 FightManager.Instance.FuseDragonHP();
 
+                //change the avatar
+                //change the default animation
+                bool dragonSelected = PlayerSpriteLoader.Instance.FinalizeSelection();
+
                 //change animator parameters
-                MoveToPlayerTurn();
+                if (dragonSelected) { MoveToPlayerTurn(); }
                 break;
 
             default:

@@ -32,6 +32,7 @@ public class UITameMenu : MonoBehaviour
 
     //Addressables-related variables
     #region Addresses
+    /*
     private const string flyBaseDragonPrefabAddress = "Prefabs/FLY_BASE.prefab";
     private const string flyFireDragonPrefabAddress = "Prefabs/FLY_FIRE.prefab";
     private const string flyWaterDragonPrefabAddress = "Prefabs/FLY_WATER.prefab";
@@ -45,7 +46,10 @@ public class UITameMenu : MonoBehaviour
         flyEarthDragonPrefabAddress,
         flyAirDragonPrefabAddress
     };
+    */
+    public List<GameObject> prefabList = new List<GameObject>();
     #endregion
+    
     private Dictionary<string, KeyValuePair<AssetReference, AsyncOperationHandle<GameObject>>> asyncOperationHandles =
         new Dictionary<string, KeyValuePair<AssetReference, AsyncOperationHandle<GameObject>>>();
 
@@ -58,6 +62,27 @@ public class UITameMenu : MonoBehaviour
         rect.localScale = new Vector3(0f, 0f, 0f);
     }
 
+    public void Spawn(int addressListIndex)
+    {
+        //the addressListIndex will be linked to the PlayerSpriteLoader, therefore, must be 1-based
+        if (addressListIndex == flyingDragonIndex) { HideFlyingDragon(); return; }
+
+        HideFlyingDragon();
+        flyingDragonIndex = addressListIndex;
+
+        //addressList is 0-based, hence the -1
+        GameObject dragonPrefab = prefabList[addressListIndex - 1];
+
+        SpawnPrefabFromLoadedReference(dragonPrefab);
+    }
+
+    private void SpawnPrefabFromLoadedReference(GameObject dragonPrefab)
+    {
+        GameObject instance = Instantiate(dragonPrefab, transform.root);
+        flyingDragon = instance;
+    }
+
+    /*
     public void Spawn(int addressListIndex)
     {
         //the addressListIndex will be linked to the PlayerSpriteLoader, therefore, must be 1-based
@@ -123,6 +148,7 @@ public class UITameMenu : MonoBehaviour
     {
         asyncOperationHandles.Clear();
     }
+    */
 
     private void AssignFlyingDragonIndex()
     {
@@ -151,13 +177,14 @@ public class UITameMenu : MonoBehaviour
         }
 
         player.IsChoosingTame = isChoosing;
+
         if (!isChoosing)
         {
             //prepare for possible transition to attack scene
             AssignFlyingDragonIndex();
 
             //clear memory of async operation handles
-            ClearReferences(); 
+            //ClearReferences(); 
         }
     }
 

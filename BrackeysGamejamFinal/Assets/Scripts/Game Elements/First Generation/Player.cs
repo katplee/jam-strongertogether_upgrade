@@ -119,6 +119,16 @@ public class Player : Element
         earthAttack = ((currentLvl == GameManager.earthLevel) ? specialtyAttackMultiplier : 0) * attack;
     }
 
+    //add the attack values of the dragon upon fusion
+    private void ResetAttacks(DragonData dragon)
+    {
+        baseAttack += dragon.baseAttack;
+        fireAttack += dragon.fireAttack;
+        waterAttack += dragon.waterAttack;
+        windAttack += dragon.windAttack;
+        earthAttack += dragon.earthAttack;
+    }
+
     public override void InitialSerialization()
     {
         //assign player to save file
@@ -261,11 +271,20 @@ public class Player : Element
 
     }
 
-    public void SetParametersOnFuse(float armor)
+    public void SetParametersOnFuse(DragonData dragon)
     {
-        Debug.Log($"{armor}/{maxArmor}"); //delete
-        SetStatMaximum(ref maxArmor, Armor + armor);
-        Armor = Armor + armor;
+        Debug.Log($"{Armor}/{maxArmor}");
+        Debug.Log($"{baseAttack}, {fireAttack}, {waterAttack}, {earthAttack}, {windAttack}");
+
+        //set the dragon's hp as the player's armor
+        SetStatMaximum(ref maxArmor, Armor + dragon.hp);
+        Armor = Armor + dragon.hp;
+
+        //add the dragon's damage stats to the player's
+        ResetAttacks(dragon);
+
+        Debug.Log($"{Armor}/{maxArmor}");
+        Debug.Log($"{baseAttack}, {fireAttack}, {waterAttack}, {earthAttack}, {windAttack}");
     }
 
     private void TESTPrintPlayerData()

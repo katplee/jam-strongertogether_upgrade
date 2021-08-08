@@ -48,8 +48,11 @@ public class UIDragonPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         UIDragonSubPanel.Instance.ClearSubPanel();
         UIDragonSubPanel.Instance.ToggleInteractability(false);
 
-        //for animations of player
+        //for easy tracking of pointer movement
         PlayerSpriteLoader.Instance.SetAnimParameter("panelMouseOn", false);
+
+        //set the player sprite to the original prior to mouse hover
+        PlayerSpriteLoader.Instance.ResetSprite();
     }
 
     public void ParentParameters()

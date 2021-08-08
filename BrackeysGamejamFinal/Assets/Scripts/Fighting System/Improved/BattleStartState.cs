@@ -20,8 +20,6 @@ public class BattleStartState : StateMachineBehaviour
 
         SetManagers();
 
-        RestartAnimation();
-
         //instantiate the player prefab at the player transform
         //FM.PGO = Instantiate(PM.PPlayer, TM.TPlayer);
         FM.PGO = TM.TPlayer.transform.GetChild(0).gameObject;
@@ -82,19 +80,5 @@ public class BattleStartState : StateMachineBehaviour
     {
         animator.SetBool("hasStarted", true);
         animator.SetBool("isPlayerTurn", true);
-    }
-
-    private void RestartAnimation()
-    {
-        //check if there was a dragon flying when player went to fight with enemy
-        InventorySave inventorySave = InventorySave.Instance.LoadInventoryData();
-        InventoryData inventory = inventorySave.inventory;
-
-        if (inventory.flyingDragonIndex == 0)
-        {
-            PlayerSpriteManager.Instance.AssignRefIndex(0);
-            PlayerSpriteManager.Instance.LoadAndAssign(true);
-            return;
-        }
     }
 }

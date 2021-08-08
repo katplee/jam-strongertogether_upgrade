@@ -149,6 +149,7 @@
     <Compile Include="Assets\Scripts\UI\Element HUD\UILevel.cs" />
     <Compile Include="Assets\Scripts\UI\Element HUD\UIName.cs" />
     <Compile Include="Assets\Scripts\UI\Element HUD\UITransform.cs" />
+    <Compile Include="Assets\Scripts\UI\Element HUD\UIValue.cs" />
     <Compile Include="Assets\Scripts\UI\General Attack Scene\UIBattleHUD.cs" />
     <Compile Include="Assets\Scripts\UI\General Attack Scene\UIDestroyNotif.cs" />
     <Compile Include="Assets\Scripts\UI\General Attack Scene\UIDragonPanel.cs" />
