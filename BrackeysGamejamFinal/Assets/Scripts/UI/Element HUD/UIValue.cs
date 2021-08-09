@@ -1,4 +1,6 @@
 ﻿using TMPro;
+using UnityEngine;
+using System;
 
 public class UIValue : UIObject
 {
@@ -33,7 +35,7 @@ public class UIValue : UIObject
                 break;
 
             case "armor":
-                element.NormalHP(out string armorString);
+                element.NormalArmor(out string armorString);
                 text.text = armorString;
                 break;
 

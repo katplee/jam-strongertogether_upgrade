@@ -45,14 +45,16 @@ public class EventManager : MonoBehaviour
         {
             GameManager.Instance.LevelStart(); //will not be called at AttackScene
             SerializationCommander.Instance.A_BFromASerialization();
+            //UIBattleHUD.ExternalUpdateHUD(); implemented using state machine
             return; 
         }
 
         if (GameManager.currentSceneName == GameManager.attackScene)
         {
-            // currently empty
-            // SerializationCommander.Instance.A_AFromBSerialization();
-            // return;
+            //methods are called from the battle states
+            //currently empty
+            //SerializationCommander.Instance.A_AFromBSerialization();
+            //return;
         }
     }
 

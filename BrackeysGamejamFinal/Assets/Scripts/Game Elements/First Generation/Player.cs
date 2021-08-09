@@ -27,6 +27,8 @@ public class Player : Element
         }
     }
 
+    public static bool PlayerParamsReady = false;
+    
     #region Variables to sort
     private int direction, legion, dieForm;
     private bool reloading = false, dead = false, armed;
@@ -55,7 +57,6 @@ public class Player : Element
     #region Serialization Parameters
     private PlayerData playerData;
     #endregion
-
 
     protected override void Awake()
     {
@@ -168,6 +169,8 @@ public class Player : Element
         playerData.windAttack = windAttack;
         playerData.earthAttack = earthAttack;
         playerData.baseAttack = baseAttack;
+
+        PlayerParamsReady = true;
     }
 
     public override void InitializeDeserialization()
@@ -273,18 +276,12 @@ public class Player : Element
 
     public void SetParametersOnFuse(DragonData dragon)
     {
-        Debug.Log($"{Armor}/{maxArmor}");
-        Debug.Log($"{baseAttack}, {fireAttack}, {waterAttack}, {earthAttack}, {windAttack}");
-
         //set the dragon's hp as the player's armor
         SetStatMaximum(ref maxArmor, Armor + dragon.hp);
         Armor = Armor + dragon.hp;
 
         //add the dragon's damage stats to the player's
         ResetAttacks(dragon);
-
-        Debug.Log($"{Armor}/{maxArmor}");
-        Debug.Log($"{baseAttack}, {fireAttack}, {waterAttack}, {earthAttack}, {windAttack}");
     }
 
     private void TESTPrintPlayerData()

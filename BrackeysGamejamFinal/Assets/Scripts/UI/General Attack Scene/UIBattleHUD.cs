@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIBattleHUD : UIObject
 {
-    private static event Action<Element> OnHUDUpdate;
+    private static bool UIBattleHUDReady = false;
 
     private UIName elemName;
     private UILevel elemLevel;
@@ -24,12 +25,17 @@ public class UIBattleHUD : UIObject
     {
         Debug.Log($"{gameObject.name} setting...");
 
-        UpdateHUD(Player.Instance);
+        //this method will only be called in the attack scene
+        if (GameManager.currentSceneName != GameManager.attackScene)
+        {
+            UIBattleHUDReady = true;
+            //update the HUD seen in the basic map scene
+            StartCoroutine(UpdateBasicHUD());
+        }
 
         //this method will only be called in the attack scene
-        if (GameManager.currentSceneName != GameManager.attackScene) { return; }
-
-        HUDManager.Instance.DeclareThis(Label, this);
+        if (GameManager.currentSceneName == GameManager.attackScene)
+            HUDManager.Instance.DeclareThis(Label, this);
     }
 
     public void UpdateHUD<T>(T element)
@@ -39,7 +45,13 @@ public class UIBattleHUD : UIObject
         //elemLevel.text = "Lvl " + element.armor.ToString();
         if (elemArmor != null) { elemArmor.ChangeFillAmount(element.NormalArmor(out _)); }
         if (elemHP != null) { elemHP.ChangeFillAmount(element.NormalHP(out _)); }
-        if (elemValue != null) { OnHUDUpdate?.Invoke(element); }
+        if (elemValue.Count != 0) 
+        {
+            foreach(KeyValuePair<string, UIValue> pair in elemValue)
+            {
+                pair.Value.ChangeText(element);
+            }
+        }
     }
 
     public void UpdateHPArmor<T>(float hp, float armor, float maxHP, float maxArmor)
@@ -47,6 +59,13 @@ public class UIBattleHUD : UIObject
     {
         //hpStatsBar.fillAmount = hp / maxHP;
         //armorStatsBar.fillAmount = armor / maxArmor;
+    }
+
+    IEnumerator UpdateBasicHUD()
+    {
+        if (!UIBattleHUDReady) { yield return null; }
+        if (!Player.PlayerParamsReady) { yield return null; }
+        UpdateHUD(Player.Instance);
     }
 
     private void SetName(UIName name)
@@ -109,9 +128,7 @@ public class UIBattleHUD : UIObject
                 break;
 
             case "UIValue":
-                UIValue UIValue = UIObject as UIValue;
-                SetValue(UIValue, name);
-                OnHUDUpdate += UIValue.ChangeText;
+                SetValue(UIObject as UIValue, name);
                 break;
         }
     }

@@ -67,7 +67,7 @@ public class EnemySpriteLoader : MonoBehaviour
 
         AnimationUtility.SetObjectReferenceCurve(animClip, spriteBinding, spriteKeyFrames);
 
-        AssetDatabase.CreateAsset(animClip, "Assets/Animations/Enemy/EnemyAttackReady.anim");
+        AssetDatabase.CreateAsset(animClip, "Assets/Animations & State Machines/Enemy/EnemyAttackReady.anim");
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
 
