@@ -1,4 +1,6 @@
-﻿using UnityEngine.UI;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class UIArmor : UIObject
 {
@@ -19,6 +21,15 @@ public class UIArmor : UIObject
         {
             parent.DeclareThis(Label, this);
         }
+
+        UpdateHUD();
+    }
+
+    private void UpdateHUD()
+    {
+        if(!FindObjectOfType<UIUpdater>()) { return; }
+
+        UIUpdater.Instance.SetAnimParameter(0, name.ToLower().Replace(" ", "_"), 1);
     }
 
     public void ChangeFillAmount(float armor, float maxArmor)

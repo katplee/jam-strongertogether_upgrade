@@ -1,6 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 using System;
+using System.Collections;
 
 public class UIValue : UIObject
 {
@@ -21,6 +22,15 @@ public class UIValue : UIObject
         {
             parent.DeclareThis(Label, this, name);
         }
+
+        UpdateHUD();
+    }
+    
+    private void UpdateHUD()
+    {
+        if(!FindObjectOfType<UIUpdater>()) { return; }
+
+        UIUpdater.Instance.SetAnimParameter(0, name.ToLower().Replace(" ", "_"), 1);
     }
 
     public void ChangeText(Element element)

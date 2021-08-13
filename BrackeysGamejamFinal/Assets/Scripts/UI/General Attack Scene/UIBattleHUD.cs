@@ -8,13 +8,13 @@ using UnityEngine.UI;
 
 public class UIBattleHUD : UIObject
 {
-    private static bool UIBattleHUDReady = false;
-
     private UIName elemName;
     private UILevel elemLevel;
     private UIHP elemHP;
     private UIArmor elemArmor;
     private Dictionary<string, UIValue> elemValue = new Dictionary<string, UIValue>();
+
+    public Animator Animator { get; set; } = null;
 
     public override string Label
     {
@@ -25,17 +25,13 @@ public class UIBattleHUD : UIObject
     {
         Debug.Log($"{gameObject.name} setting...");
 
-        //this method will only be called in the attack scene
-        if (GameManager.currentSceneName != GameManager.attackScene)
-        {
-            UIBattleHUDReady = true;
-            //update the HUD seen in the basic map scene
-            StartCoroutine(UpdateBasicHUD());
-        }
+        Animator = GetComponent<Animator>();
 
         //this method will only be called in the attack scene
         if (GameManager.currentSceneName == GameManager.attackScene)
+        {
             HUDManager.Instance.DeclareThis(Label, this);
+        }
     }
 
     public void UpdateHUD<T>(T element)
@@ -45,9 +41,9 @@ public class UIBattleHUD : UIObject
         //elemLevel.text = "Lvl " + element.armor.ToString();
         if (elemArmor != null) { elemArmor.ChangeFillAmount(element.NormalArmor(out _)); }
         if (elemHP != null) { elemHP.ChangeFillAmount(element.NormalHP(out _)); }
-        if (elemValue.Count != 0) 
+        if (elemValue.Count != 0)
         {
-            foreach(KeyValuePair<string, UIValue> pair in elemValue)
+            foreach (KeyValuePair<string, UIValue> pair in elemValue)
             {
                 pair.Value.ChangeText(element);
             }
@@ -59,13 +55,6 @@ public class UIBattleHUD : UIObject
     {
         //hpStatsBar.fillAmount = hp / maxHP;
         //armorStatsBar.fillAmount = armor / maxArmor;
-    }
-
-    IEnumerator UpdateBasicHUD()
-    {
-        if (!UIBattleHUDReady) { yield return null; }
-        if (!Player.PlayerParamsReady) { yield return null; }
-        UpdateHUD(Player.Instance);
     }
 
     private void SetName(UIName name)

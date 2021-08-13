@@ -144,11 +144,13 @@
     <Compile Include="Assets\Scripts\UI\Dragon Panel\DP_UIName.cs" />
     <Compile Include="Assets\Scripts\UI\Dragon Panel\DP_UIOpacity.cs" />
     <Compile Include="Assets\Scripts\UI\Dragon Panel\DP_UIXP.cs" />
+    <Compile Include="Assets\Scripts\UI\Element HUD\HUDUpdateState.cs" />
     <Compile Include="Assets\Scripts\UI\Element HUD\UIArmor.cs" />
     <Compile Include="Assets\Scripts\UI\Element HUD\UIHP.cs" />
     <Compile Include="Assets\Scripts\UI\Element HUD\UILevel.cs" />
     <Compile Include="Assets\Scripts\UI\Element HUD\UIName.cs" />
     <Compile Include="Assets\Scripts\UI\Element HUD\UITransform.cs" />
+    <Compile Include="Assets\Scripts\UI\Element HUD\UIUpdater.cs" />
     <Compile Include="Assets\Scripts\UI\Element HUD\UIValue.cs" />
     <Compile Include="Assets\Scripts\UI\General Attack Scene\UIBattleHUD.cs" />
     <Compile Include="Assets\Scripts\UI\General Attack Scene\UIDestroyNotif.cs" />

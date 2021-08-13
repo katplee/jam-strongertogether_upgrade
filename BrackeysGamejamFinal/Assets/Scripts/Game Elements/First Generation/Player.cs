@@ -14,6 +14,8 @@ using Random = UnityEngine.Random;
 
 public class Player : Element
 {
+    public static event Action OnPlayerParamsReady;
+
     private static Player instance;
     public static Player Instance
     {
@@ -26,8 +28,6 @@ public class Player : Element
             return instance;
         }
     }
-
-    public static bool PlayerParamsReady = false;
     
     #region Variables to sort
     private int direction, legion, dieForm;
@@ -170,7 +170,9 @@ public class Player : Element
         playerData.earthAttack = earthAttack;
         playerData.baseAttack = baseAttack;
 
-        PlayerParamsReady = true;
+        if (!FindObjectOfType<UIUpdater>()) { return; }
+
+        UIUpdater.Instance.SetAnimParameter(0, GetType().Name.ToLower(), 1);
     }
 
     public override void InitializeDeserialization()

@@ -45,7 +45,6 @@ public class EventManager : MonoBehaviour
         {
             GameManager.Instance.LevelStart(); //will not be called at AttackScene
             SerializationCommander.Instance.A_BFromASerialization();
-            //UIBattleHUD.ExternalUpdateHUD(); implemented using state machine
             return; 
         }
 

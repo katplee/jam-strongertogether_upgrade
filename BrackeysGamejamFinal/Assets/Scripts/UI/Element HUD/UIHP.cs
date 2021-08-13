@@ -1,4 +1,6 @@
-﻿using UnityEngine.UI;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class UIHP : UIObject
 {
@@ -19,6 +21,15 @@ public class UIHP : UIObject
         {
             parent.DeclareThis(Label, this);
         }
+
+        UpdateHUD();
+    }
+
+    private void UpdateHUD()
+    {
+        if (!FindObjectOfType<UIUpdater>()) { return; }
+
+        UIUpdater.Instance.SetAnimParameter(0, name.ToLower().Replace(" ", "_"), 1);
     }
 
     public void ChangeFillAmount(float hp, float maxHP)
