@@ -21,6 +21,7 @@ public class EnemySpriteLoader : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     #endregion
 
+   
     private void Awake()
     {
         SubscribeEvents();

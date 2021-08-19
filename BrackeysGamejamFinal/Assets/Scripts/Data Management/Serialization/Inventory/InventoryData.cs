@@ -23,6 +23,9 @@ public class InventoryData
     public List<DragonData> earthDragons = new List<DragonData>();
     public List<DragonData> airDragons = new List<DragonData>();
 
+    //INTERACTABLE ITEMS
+    public List<ItemData> interactableItems = new List<ItemData>();
+
     #region Dragons
 
     public List<DragonData> ChooseDragonList(DragonType type)
@@ -158,4 +161,27 @@ public class InventoryData
     }
 
     #endregion
+
+    #region Items
+
+    public void PopulateItemList(ItemData item)
+    {
+        interactableItems.Add(item);
+    }
+
+    public List<ItemData> ReturnCollectedItems()
+    {
+        List<ItemData> collectedItems = new List<ItemData>();
+        collectedItems = interactableItems;
+
+        foreach(ItemData item in collectedItems)
+        {
+            if (!item.collected) { collectedItems.Remove(item); }
+        }
+
+        return collectedItems;
+    }
+
+    #endregion
+
 }

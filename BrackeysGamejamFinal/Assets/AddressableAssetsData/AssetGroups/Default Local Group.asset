@@ -53,6 +53,18 @@ MonoBehaviour:
     m_Address: Prefabs/FLY_WATER.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: f59e2146a56bcf842ac1b5fb127c025b
+    m_Address: Scriptable Objects/Circle.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 682b26f022ce0614c9a8f6fa0689e905
+    m_Address: Scriptable Objects/Diamond.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ca306fdc7346a1049944dcc8b5d7da9c
+    m_Address: Scriptable Objects/Square.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b4d1ddcf26a0be648bd3fa68d7a36fe4, type: 2}
   m_SchemaSet:

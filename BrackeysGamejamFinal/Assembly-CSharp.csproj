@@ -106,6 +106,7 @@
     <Compile Include="Assets\Scripts\Data Management\Serialization\Game Elements Data\PlayerData.cs" />
     <Compile Include="Assets\Scripts\Data Management\Serialization\Game Elements Data\StoneData.cs" />
     <Compile Include="Assets\Scripts\Data Management\Serialization\Inventory\InventoryData.cs" />
+    <Compile Include="Assets\Scripts\Data Management\Serialization\Inventory\ItemData.cs" />
     <Compile Include="Assets\Scripts\Data Management\Serialization\InventorySave.cs" />
     <Compile Include="Assets\Scripts\Data Management\Serialization\PlayerSave.cs" />
     <Compile Include="Assets\Scripts\Data Management\Serialization\Serialization Surrogates\GameObjectSerializationSurrogate.cs" />
@@ -132,11 +133,13 @@
     <Compile Include="Assets\Scripts\Game Elements\First Generation\Enemy.cs" />
     <Compile Include="Assets\Scripts\Game Elements\First Generation\Player.cs" />
     <Compile Include="Assets\Scripts\In-Game HUD\PlayerHUD.cs" />
+    <Compile Include="Assets\Scripts\Interactable Items\Item.cs" />
+    <Compile Include="Assets\Scripts\Interactable Items\ItemScriptable.cs" />
     <Compile Include="Assets\Scripts\Post-processing\PostProcessing.cs" />
-    <Compile Include="Assets\Scripts\SpriteManagement\EnemySpriteLoader.cs" />
-    <Compile Include="Assets\Scripts\SpriteManagement\EnemySpriteManager.cs" />
-    <Compile Include="Assets\Scripts\SpriteManagement\PlayerSpriteLoader.cs" />
-    <Compile Include="Assets\Scripts\SpriteManagement\PlayerSpriteManager.cs" />
+    <Compile Include="Assets\Scripts\Sprite Management\EnemySpriteLoader.cs" />
+    <Compile Include="Assets\Scripts\Sprite Management\EnemySpriteManager.cs" />
+    <Compile Include="Assets\Scripts\Sprite Management\PlayerSpriteLoader.cs" />
+    <Compile Include="Assets\Scripts\Sprite Management\PlayerSpriteManager.cs" />
     <Compile Include="Assets\Scripts\UI\Actions Panel\UIButton.cs" />
     <Compile Include="Assets\Scripts\UI\Dragon Panel\DP_UIAvatar.cs" />
     <Compile Include="Assets\Scripts\UI\Dragon Panel\DP_UIDragon.cs" />
@@ -158,6 +161,9 @@
     <Compile Include="Assets\Scripts\UI\General Attack Scene\UIDragonSubPanel.cs" />
     <Compile Include="Assets\Scripts\UI\General Attack Scene\UIObject.cs" />
     <Compile Include="Assets\Scripts\UI\General Attack Scene\UIPanelButton.cs" />
+    <Compile Include="Assets\Scripts\UI\Inventory\UIContainer.cs" />
+    <Compile Include="Assets\Scripts\UI\Inventory\UIInventory.cs" />
+    <Compile Include="Assets\Scripts\UI\Inventory\UISlotTemplate.cs" />
     <Compile Include="Assets\Scripts\UI\Tame Menu\UITameButton.cs" />
     <Compile Include="Assets\Scripts\UI\Tame Menu\UITameMenu.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

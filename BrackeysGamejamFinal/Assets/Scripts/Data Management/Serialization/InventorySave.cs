@@ -110,6 +110,37 @@ public class InventorySave
 
     #endregion
 
+    #region Items
+    public void PopulateItemList(ItemData item)
+    {
+        inventory.PopulateItemList(item);
+    }
+
+    private int FindItem(ItemData specificItem)
+    {
+        List<ItemData> list = inventory.interactableItems;
+
+        foreach (ItemData item in list)
+        {
+            if (item.itemName == specificItem.itemName)
+            {
+                return list.IndexOf(item);
+            }
+        }
+
+        throw new NotFoundInListException();
+    }
+
+    public void ReplaceItemList(ItemData item)
+    {
+        int index = FindItem(item);
+
+        List<ItemData> list = inventory.interactableItems;
+        list[index] = item;
+    }
+
+    #endregion
+
     public InventorySave LoadInventoryData()
     {
         int found = path.IndexOf("/saves/");

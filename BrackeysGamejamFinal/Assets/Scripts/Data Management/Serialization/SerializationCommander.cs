@@ -22,6 +22,10 @@ public class SerializationCommander : MonoBehaviour
     public static Action ReloadAllDragons;
     #endregion
 
+    #region Item events
+    public static Action ReloadAllItems;
+    #endregion
+
     public static SerializationCommander Instance { get; private set; }
 
     private void Awake()
@@ -146,6 +150,7 @@ public class SerializationCommander : MonoBehaviour
         ReloadAllEnemies?.Invoke();
         ReloadAllStones?.Invoke();
         ReloadAllDragons?.Invoke();
+        ReloadAllItems?.Invoke();
 
         //reload the stats of the last enemy
 

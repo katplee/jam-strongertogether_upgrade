@@ -27,7 +27,6 @@ public class HUDUpdateState : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        //change all parameters to false and return to default state
         
     }
 
