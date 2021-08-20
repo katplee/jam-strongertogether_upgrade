@@ -17,5 +17,10 @@ public class UISlotTemplate : UIObject
         {
             root.DeclareThis(Label, this);
         }
+
+        //set interactability to false for the original template only
+        if (name.Contains("Clone")) { return; }
+
+        gameObject.SetActive(false);
     }
 }

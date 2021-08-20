@@ -1,9 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UIInventory : MonoBehaviour
 {
+    public delegate Sprite spriteUpdateDelegate();
+    public static event spriteUpdateDelegate OnItemSpriteUpdate;
+
     private static UIInventory instance;
     public static UIInventory Instance
     {
@@ -57,20 +61,33 @@ public class UIInventory : MonoBehaviour
     private void SetInventory()
     {
         InventorySave inventorySave = InventorySave.Instance.LoadInventoryData();
-        InventoryData inventory = inventorySave.inventory;
+        inventory = inventorySave.inventory;
 
         //display collected items
-        //RefreshInventoryItems();
+        RefreshInventoryItems();
     }
 
     private void RefreshInventoryItems()
     {
+        if(inventory.ReturnCollectedItems().Count == 0) { return; }
+
         foreach(ItemData item in inventory.ReturnCollectedItems())
         {
+            #region Update each item slot's visibility, name, etc etc
             Transform transform = Instantiate(itemSlotTemplate, itemContainer);
+            //destroy the UI slot template script
+            Destroy(transform.GetComponent<UISlotTemplate>());
             //set the inactive template to active
             transform.gameObject.SetActive(true);
+            //set the slot's name for better readability
+            transform.name = item.itemType.ToString();
+            #endregion
+
+            #region Update the appearance
             //update the sprite
+            
+            #endregion
+
 
         }
     }

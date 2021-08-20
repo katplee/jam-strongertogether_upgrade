@@ -6,6 +6,12 @@ using UnityEngine.AddressableAssets;
 
 public class UIDestroyNotif : MonoBehaviour
 {
+    public static event Action Destroyed;
+
+    
+
+    #region For addressables system
+    /*
     //to be attached to prefabs instatiated using the addressable system
 
     public event Action<AssetReference, UIDestroyNotif> Destroyed;
@@ -15,5 +21,7 @@ public class UIDestroyNotif : MonoBehaviour
     {
         Destroyed?.Invoke(AssetReference, this);    
     }
+    */
+    #endregion
 
 }

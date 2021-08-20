@@ -172,11 +172,10 @@ public class InventoryData
     public List<ItemData> ReturnCollectedItems()
     {
         List<ItemData> collectedItems = new List<ItemData>();
-        collectedItems = interactableItems;
 
-        foreach(ItemData item in collectedItems)
+        foreach(ItemData item in interactableItems)
         {
-            if (!item.collected) { collectedItems.Remove(item); }
+            if (item.collected) { collectedItems.Add(item); }
         }
 
         return collectedItems;

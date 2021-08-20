@@ -32,6 +32,8 @@ public class Item : MonoBehaviour
         UnsubscribeEvents();
     }
 
+    #region Serialization, proper instantiation @ scene start
+
     public void InitialSerialization()
     {
         PopulateWithItem();
@@ -116,19 +118,39 @@ public class Item : MonoBehaviour
         InitializeDeserialization();
     }
 
+    #endregion
+
+    #region Inventory UI updates, syncs
+
+    private void UpdateItemSprite(ItemData item)
+    {
+        if(item.itemName != itemData.itemName) { return; }
+
+        //item
+    }
+
+    #endregion
 
     private void SubscribeEvents()
     {
+        //Serialization, proper instantiation @ scene start
         GameManager.OnLevelFirstInstance += InitialSerialization;
         GameManager.OnLevelNormalInstance += InitializeSerialization;
         SerializationCommander.ReloadAllItems += ReloadThisItem;
+
+        //Inventory UI updates, syncs
+        UIInventory.OnItemSpriteUpdate += UpdateItemSprite;
     }
 
     private void UnsubscribeEvents()
     {
+        //Serialization, proper instantiation @ scene start
         GameManager.OnLevelFirstInstance -= InitialSerialization;
         GameManager.OnLevelNormalInstance -= InitializeSerialization;
         SerializationCommander.ReloadAllItems -= ReloadThisItem;
+
+        //Inventory UI updates, syncs
+        UIInventory.OnItemSpriteUpdate += UpdateItemSprite;
     }
 
 }
