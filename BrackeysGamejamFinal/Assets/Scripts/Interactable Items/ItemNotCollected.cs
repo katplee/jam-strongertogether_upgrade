@@ -10,7 +10,7 @@ public enum ItemType
     Diamond
 }
 
-public class ItemSerializable : MonoBehaviour
+public class ItemNotCollected : MonoBehaviour
 {
     public ItemScriptable itemScriptable;
     
@@ -39,6 +39,7 @@ public class ItemSerializable : MonoBehaviour
         itemData.itemType = itemScriptable.itemType;
         itemData.itemName = itemScriptable.itemName;
         itemData.itemAmount = itemScriptable.itemAmount;
+        itemData.itemID = name;
         itemData.collected = false;
     }
 
@@ -50,7 +51,7 @@ public class ItemSerializable : MonoBehaviour
 
         foreach (ItemData item in list)
         {
-            if (item.itemName == itemData.itemName)
+            if (item.itemID == itemData.itemID)
             {
                 itemData = item;
 
@@ -86,7 +87,7 @@ public class ItemSerializable : MonoBehaviour
 
         foreach (ItemData item in list)
         {
-            if (item.itemName == itemData.itemName)
+            if (item.itemID == itemData.itemID)
             {
                 bool collected = item.collected ? true : false;
                 return collected;
@@ -107,7 +108,6 @@ public class ItemSerializable : MonoBehaviour
     {
         if (Collected())
         {
-            Debug.Log("item collected loop");
             //make sure it is properly reflected in the inventory ui before removing
             UIInventory.Instance.RefreshInventoryItems(itemData, itemScriptable);
             //then destroy the item in the map, to make sure items that have been collected do not show up again

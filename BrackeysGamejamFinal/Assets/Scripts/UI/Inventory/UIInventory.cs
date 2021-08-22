@@ -78,16 +78,16 @@ public class UIInventory : MonoBehaviour
 
     public void RefreshInventoryItems(ItemData specItemData, ItemScriptable specItemScriptable)
     {
-        Transform _transform = GenerateInstance(specItemScriptable, out bool newItem);
-        Item _item = AttachItemObject(specItemScriptable, _transform, newItem);
+        Transform _transform = GenerateInstance(specItemData, out bool newItem);
+        ItemCollected _item = AttachItemObject(specItemScriptable, _transform, newItem);
         UpdateSpriteParameters(_transform, _item);
     }
 
-    private Transform GenerateInstance(ItemScriptable specItemScriptable, out bool newItem)
+    private Transform GenerateInstance(ItemData specItemData, out bool newItem)
     {
         //update each item slot's visibility, name, etc etc
         
-        if (!displayedItems.Exists(s => s.name == specItemScriptable.itemType.ToString()))
+        if (!displayedItems.Exists(s => s.name == specItemData.itemType.ToString()))
         {
             Transform transform = Instantiate(itemSlotTemplate, itemContainer);
             //destroy the UI slot template script
@@ -95,7 +95,7 @@ public class UIInventory : MonoBehaviour
             //set the inactive template to active
             transform.gameObject.SetActive(true);
             //set the slot's name for better readability
-            transform.name = specItemScriptable.itemType.ToString();
+            transform.name = specItemData.itemType.ToString();
             //add the item's game object to the displayedItems list
             displayedItems.Add(transform.gameObject);
 
@@ -104,7 +104,7 @@ public class UIInventory : MonoBehaviour
         }
         else
         {
-            int i = displayedItems.FindIndex(s => s.name == specItemScriptable.itemType.ToString());
+            int i = displayedItems.FindIndex(s => s.name == specItemData.itemType.ToString());
             Transform transform = displayedItems[i].transform;
 
             newItem = false;
@@ -112,27 +112,27 @@ public class UIInventory : MonoBehaviour
         }
     }
 
-    private Item AttachItemObject(ItemScriptable specItemScriptable, Transform itemTransform, bool newItem)
+    private ItemCollected AttachItemObject(ItemScriptable specItemScriptable, Transform itemTransform, bool newItem)
     {
         //attach scripts that need to be attached, if any
 
         if (newItem)
         {
-            Item item = itemTransform.gameObject.AddComponent<Item>();
+            ItemCollected item = itemTransform.gameObject.AddComponent<ItemCollected>();
             item.SetItemFields(specItemScriptable);
 
             return item;
         }
         else
         {
-            Item item = itemTransform.GetComponent<Item>();
+            ItemCollected item = itemTransform.GetComponent<ItemCollected>();
             item.IncreaseDataAmount(specItemScriptable.itemAmount);
 
             return item;
         }
     }
 
-    private void UpdateSpriteParameters(Transform itemTransform, Item item)
+    private void UpdateSpriteParameters(Transform itemTransform, ItemCollected item)
     {
         //update the sprite
         Image itemImage = itemTransform.GetChild(itemSlotParam.IndexOf("Image")).GetComponent<Image>();

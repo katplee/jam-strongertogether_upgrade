@@ -133,9 +133,9 @@
     <Compile Include="Assets\Scripts\Game Elements\First Generation\Enemy.cs" />
     <Compile Include="Assets\Scripts\Game Elements\First Generation\Player.cs" />
     <Compile Include="Assets\Scripts\In-Game HUD\PlayerHUD.cs" />
-    <Compile Include="Assets\Scripts\Interactable Items\Item.cs" />
+    <Compile Include="Assets\Scripts\Interactable Items\ItemCollected.cs" />
+    <Compile Include="Assets\Scripts\Interactable Items\ItemNotCollected.cs" />
     <Compile Include="Assets\Scripts\Interactable Items\ItemScriptable.cs" />
-    <Compile Include="Assets\Scripts\Interactable Items\ItemSerializable.cs" />
     <Compile Include="Assets\Scripts\Post-processing\PostProcessing.cs" />
     <Compile Include="Assets\Scripts\Sprite Management\EnemySpriteLoader.cs" />
     <Compile Include="Assets\Scripts\Sprite Management\EnemySpriteManager.cs" />

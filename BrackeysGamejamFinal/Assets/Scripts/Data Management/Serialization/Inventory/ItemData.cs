@@ -9,7 +9,8 @@ public class ItemData
     public ItemType itemType;
     public string itemName; //more specific name of the item
     public int itemAmount;
-    
+
+    public string itemID;
     public bool collected;
 
 }

@@ -122,7 +122,7 @@ public class InventorySave
 
         foreach (ItemData item in list)
         {
-            if (item.itemName == specificItem.itemName)
+            if (item.itemID == specificItem.itemID)
             {
                 return list.IndexOf(item);
             }
