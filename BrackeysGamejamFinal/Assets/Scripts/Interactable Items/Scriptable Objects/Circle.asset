@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemName: The Circle of Life
-  itemSprite: {fileID: 6623669693082455145, guid: 290b617eb015685479052e5cde08390c,
+  itemAmount: 1
+  itemSprite: {fileID: 3195579342170932596, guid: 290b617eb015685479052e5cde08390c,
     type: 3}

@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemName: Shiny Diamond
-  itemSprite: {fileID: 3195579342170932596, guid: 290b617eb015685479052e5cde08390c,
+  itemAmount: 0
+  itemSprite: {fileID: 7468865652224819654, guid: 290b617eb015685479052e5cde08390c,
     type: 3}

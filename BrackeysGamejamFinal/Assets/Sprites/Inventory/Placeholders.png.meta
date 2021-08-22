@@ -14,6 +14,12 @@ TextureImporter:
   - first:
       213: 3195579342170932596
     second: Placeholders_3
+  - first:
+      213: 7468865652224819654
+    second: Placeholders_4
+  - first:
+      213: -2934358045738406466
+    second: Placeholders_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -107,7 +113,7 @@ TextureImporter:
         width: 40
         height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 5, y: 5, z: 5, w: 5}
       outline: []
       physicsShape: []
@@ -128,7 +134,7 @@ TextureImporter:
         width: 40
         height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -144,12 +150,12 @@ TextureImporter:
       name: Placeholders_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 80
+        y: 40
         width: 40
         height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,12 +171,12 @@ TextureImporter:
       name: Placeholders_3
       rect:
         serializedVersion: 2
-        x: 40
+        x: 0
         y: 0
         width: 40
         height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -178,6 +184,48 @@ TextureImporter:
       bones: []
       spriteID: 475cca51b7af85c20800000000000000
       internalID: 3195579342170932596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Placeholders_4
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c10afb2dbdb6a760800000000000000
+      internalID: 7468865652224819654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Placeholders_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebde3ff77e01747d0800000000000000
+      internalID: -2934358045738406466
       vertices: []
       indices: 
       edges: []

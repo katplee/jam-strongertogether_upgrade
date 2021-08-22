@@ -2,11 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class UIInventory : MonoBehaviour
 {
-    public delegate Sprite spriteUpdateDelegate();
-    public static event spriteUpdateDelegate OnItemSpriteUpdate;
+    public delegate ItemScriptable spriteUpdateDelegate(ItemData itemData);
+    public static event spriteUpdateDelegate OnItemUpdate;
 
     private static UIInventory instance;
     public static UIInventory Instance
@@ -21,6 +23,16 @@ public class UIInventory : MonoBehaviour
         }
     }
 
+    private List<string> itemSlotParam = new List<string>()
+    {
+        "Border", //object carrying the border sprite
+        "Image", //object carrying the item image
+        "Amount", //object carrying the amount container
+        "Text", //object carrying the amount text
+        "Exit" //object carrying the exit button sprite
+    };
+
+    List<GameObject> displayedItems = new List<GameObject>();
     private InventoryData inventory;
     private Transform itemSlotTemplate;
     private Transform itemContainer;
@@ -60,35 +72,74 @@ public class UIInventory : MonoBehaviour
 
     private void SetInventory()
     {
-        InventorySave inventorySave = InventorySave.Instance.LoadInventoryData();
-        inventory = inventorySave.inventory;
-
         //display collected items
-        RefreshInventoryItems();
+        //RefreshInventoryItems();
     }
 
-    private void RefreshInventoryItems()
+    public void RefreshInventoryItems(ItemData specItemData, ItemScriptable specItemScriptable)
     {
-        if(inventory.ReturnCollectedItems().Count == 0) { return; }
+        Transform _transform = GenerateInstance(specItemScriptable, out bool newItem);
+        Item _item = AttachItemObject(specItemScriptable, _transform, newItem);
+        UpdateSpriteParameters(_transform, _item);
+    }
 
-        foreach(ItemData item in inventory.ReturnCollectedItems())
+    private Transform GenerateInstance(ItemScriptable specItemScriptable, out bool newItem)
+    {
+        //update each item slot's visibility, name, etc etc
+        
+        if (!displayedItems.Exists(s => s.name == specItemScriptable.itemType.ToString()))
         {
-            #region Update each item slot's visibility, name, etc etc
             Transform transform = Instantiate(itemSlotTemplate, itemContainer);
             //destroy the UI slot template script
             Destroy(transform.GetComponent<UISlotTemplate>());
             //set the inactive template to active
             transform.gameObject.SetActive(true);
             //set the slot's name for better readability
-            transform.name = item.itemType.ToString();
-            #endregion
+            transform.name = specItemScriptable.itemType.ToString();
+            //add the item's game object to the displayedItems list
+            displayedItems.Add(transform.gameObject);
 
-            #region Update the appearance
-            //update the sprite
-            
-            #endregion
-
-
+            newItem = true;
+            return transform;
         }
+        else
+        {
+            int i = displayedItems.FindIndex(s => s.name == specItemScriptable.itemType.ToString());
+            Transform transform = displayedItems[i].transform;
+
+            newItem = false;
+            return transform;
+        }
+    }
+
+    private Item AttachItemObject(ItemScriptable specItemScriptable, Transform itemTransform, bool newItem)
+    {
+        //attach scripts that need to be attached, if any
+
+        if (newItem)
+        {
+            Item item = itemTransform.gameObject.AddComponent<Item>();
+            item.SetItemFields(specItemScriptable);
+
+            return item;
+        }
+        else
+        {
+            Item item = itemTransform.GetComponent<Item>();
+            item.IncreaseDataAmount(specItemScriptable.itemAmount);
+
+            return item;
+        }
+    }
+
+    private void UpdateSpriteParameters(Transform itemTransform, Item item)
+    {
+        //update the sprite
+        Image itemImage = itemTransform.GetChild(itemSlotParam.IndexOf("Image")).GetComponent<Image>();
+        itemImage.sprite = item.GetItemSprite();
+
+        //update the amount
+        TMP_Text text = itemTransform.GetChild(itemSlotParam.IndexOf("Text")).GetComponent<TMP_Text>();
+        text.text = item.GetItemAmount().ToString();
     }
 }
