@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 1
   itemName: The Cube
-  itemAmount: 0
+  itemAmount: 1
   itemSprite: {fileID: -4475915844665455371, guid: 290b617eb015685479052e5cde08390c,
     type: 3}

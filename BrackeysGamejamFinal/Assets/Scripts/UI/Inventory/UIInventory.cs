@@ -7,8 +7,8 @@ using TMPro;
 
 public class UIInventory : MonoBehaviour
 {
-    public delegate ItemScriptable spriteUpdateDelegate(ItemData itemData);
-    public static event spriteUpdateDelegate OnItemUpdate;
+    //public delegate ItemScriptable spriteUpdateDelegate(ItemData itemData);
+    //public static event spriteUpdateDelegate OnItemUpdate;
 
     private static UIInventory instance;
     public static UIInventory Instance
@@ -93,7 +93,7 @@ public class UIInventory : MonoBehaviour
             //destroy the UI slot template script
             Destroy(transform.GetComponent<UISlotTemplate>());
             //set the inactive template to active
-            transform.gameObject.SetActive(true);
+            transform.localScale = Vector3.one;
             //set the slot's name for better readability
             transform.name = specItemData.itemType.ToString();
             //add the item's game object to the displayedItems list
@@ -115,10 +115,12 @@ public class UIInventory : MonoBehaviour
     private ItemCollected AttachItemObject(ItemScriptable specItemScriptable, Transform itemTransform, bool newItem)
     {
         //attach scripts that need to be attached, if any
+        //major error: tried the AddComponent option, but would not work properly after the first time
 
         if (newItem)
         {
-            ItemCollected item = itemTransform.gameObject.AddComponent<ItemCollected>();
+            //ItemCollected item = itemGameObject.AddComponent<ItemCollected>();
+            ItemCollected item = itemTransform.GetComponent<ItemCollected>();
             item.SetItemFields(specItemScriptable);
 
             return item;
@@ -126,14 +128,20 @@ public class UIInventory : MonoBehaviour
         else
         {
             ItemCollected item = itemTransform.GetComponent<ItemCollected>();
-            item.IncreaseDataAmount(specItemScriptable.itemAmount);
+            item.IncreaseItemAmount(specItemScriptable.itemAmount);
 
             return item;
         }
     }
 
-    private void UpdateSpriteParameters(Transform itemTransform, ItemCollected item)
+    public void UpdateSpriteParameters(Transform itemTransform, ItemCollected item)
     {
+        if(item.GetItemAmount() == 0)
+        {
+            ClearThisItem(itemTransform);
+            return;
+        }
+
         //update the sprite
         Image itemImage = itemTransform.GetChild(itemSlotParam.IndexOf("Image")).GetComponent<Image>();
         itemImage.sprite = item.GetItemSprite();
@@ -141,5 +149,14 @@ public class UIInventory : MonoBehaviour
         //update the amount
         TMP_Text text = itemTransform.GetChild(itemSlotParam.IndexOf("Text")).GetComponent<TMP_Text>();
         text.text = item.GetItemAmount().ToString();
+    }
+
+    private void ClearThisItem(Transform itemTransform)
+    {
+        //delete from displayedItems list
+        displayedItems.Remove(itemTransform.gameObject);
+
+        //delete the actual item slot in the inventory
+        Destroy(itemTransform.gameObject);
     }
 }

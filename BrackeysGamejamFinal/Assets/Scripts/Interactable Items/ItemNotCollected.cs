@@ -72,14 +72,15 @@ public class ItemNotCollected : MonoBehaviour
             //reflect changes to inventory save
             InventorySave.Instance.ReplaceItemList(itemData);
             InventorySave.Instance.SaveInventoryData();
-            OnDestroy();
-
+            
             //update the inventory immediately
             UIInventory.Instance.RefreshInventoryItems(itemData, itemScriptable);
+            
+            OnDestroy();
         }
     }
 
-    private bool Collected()
+    private bool Collected(out bool used)
     {
         InventorySave inventorySave = InventorySave.Instance.LoadInventoryData();
         InventoryData inventory = inventorySave.inventory;
@@ -90,10 +91,11 @@ public class ItemNotCollected : MonoBehaviour
             if (item.itemID == itemData.itemID)
             {
                 bool collected = item.collected ? true : false;
+                used = false;
                 return collected;
             }
         }
-
+        used = true;
         return true;
     }
 
@@ -106,10 +108,13 @@ public class ItemNotCollected : MonoBehaviour
 
     private void ReloadThisItem()
     {
-        if (Collected())
+        if (Collected(out bool used))
         {
-            //make sure it is properly reflected in the inventory ui before removing
-            UIInventory.Instance.RefreshInventoryItems(itemData, itemScriptable);
+            if (!used)
+            {
+                //make sure it is properly reflected in the inventory ui before removing
+                UIInventory.Instance.RefreshInventoryItems(itemData, itemScriptable);
+            }
             //then destroy the item in the map, to make sure items that have been collected do not show up again
             OnDestroy();
             return;

@@ -181,6 +181,24 @@ public class InventoryData
         return collectedItems;
     }
 
+    public void TrashItem(ItemType type, int quantity)
+    {
+        List<ItemData> collectedItems = ReturnCollectedItems();
+
+        int i = 0;
+        int count = 0;
+
+        while (count < quantity)
+        {
+            if (collectedItems[i].itemType == type)
+            {
+                interactableItems.Remove(collectedItems[i]);
+                count++;
+            }
+            else { i++; }
+        }
+    }
+
     #endregion
 
 }

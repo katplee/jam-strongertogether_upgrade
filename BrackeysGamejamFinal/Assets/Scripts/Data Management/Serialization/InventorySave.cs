@@ -111,10 +111,6 @@ public class InventorySave
     #endregion
 
     #region Items
-    public void PopulateItemList(ItemData item)
-    {
-        inventory.PopulateItemList(item);
-    }
 
     private int FindItem(ItemData specificItem)
     {
@@ -129,6 +125,16 @@ public class InventorySave
         }
 
         throw new NotFoundInListException();
+    }
+
+    public void TrashItem(ItemType type, int quantity)
+    {
+        inventory.TrashItem(type, quantity);
+    }
+
+    public void PopulateItemList(ItemData item)
+    {
+        inventory.PopulateItemList(item);
     }
 
     public void ReplaceItemList(ItemData item)

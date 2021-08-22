@@ -105,6 +105,7 @@
     <Compile Include="Assets\Scripts\Data Management\Serialization\Game Elements Data\EnemyData.cs" />
     <Compile Include="Assets\Scripts\Data Management\Serialization\Game Elements Data\PlayerData.cs" />
     <Compile Include="Assets\Scripts\Data Management\Serialization\Game Elements Data\StoneData.cs" />
+    <Compile Include="Assets\Scripts\Data Management\Serialization\Inventory\InventoryActionList.cs" />
     <Compile Include="Assets\Scripts\Data Management\Serialization\Inventory\InventoryData.cs" />
     <Compile Include="Assets\Scripts\Data Management\Serialization\Inventory\ItemData.cs" />
     <Compile Include="Assets\Scripts\Data Management\Serialization\InventorySave.cs" />

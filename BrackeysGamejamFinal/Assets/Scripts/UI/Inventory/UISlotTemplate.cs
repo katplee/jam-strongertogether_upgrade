@@ -15,12 +15,11 @@ public class UISlotTemplate : UIObject
     {
         if (transform.root.TryGetComponent(out root))
         {
+            if(!transform.parent.GetComponent<UIContainer>())
+
             root.DeclareThis(Label, this);
         }
 
-        //set interactability to false for the original template only
-        if (name.Contains("Clone")) { return; }
-
-        gameObject.SetActive(false);
+        transform.localScale = Vector3.zero;
     }
 }
