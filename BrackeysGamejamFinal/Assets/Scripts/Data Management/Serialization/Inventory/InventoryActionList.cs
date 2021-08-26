@@ -20,7 +20,7 @@ public class InventoryActionList : MonoBehaviour
 
     public void Hello()
     {
-
+        Debug.Log("Hello");
     }
 
     public void FireButtonResponse(ItemData itemData)

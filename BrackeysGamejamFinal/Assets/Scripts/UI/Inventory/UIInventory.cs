@@ -29,6 +29,7 @@ public class UIInventory : MonoBehaviour
         "Image", //object carrying the item image
         "Amount", //object carrying the amount container
         "Text", //object carrying the amount text
+        "Button", //object carrying the button for the item
         "Exit" //object carrying the exit button sprite
     };
 
