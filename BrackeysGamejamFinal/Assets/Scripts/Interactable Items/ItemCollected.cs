@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemCollected : MonoBehaviour
 {
-    public ItemType itemType;
+    private ItemType itemType;
     private string itemName; //more specific name of the item
     private int itemAmount;
     private Sprite itemSprite;

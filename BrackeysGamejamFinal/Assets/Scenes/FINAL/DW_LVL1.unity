@@ -1556,12 +1556,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 797209693}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 70, y: 70}
+  m_AnchoredPosition: {x: 0, y: -0}
+  m_SizeDelta: {x: 45, y: 33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &563505945
 MonoBehaviour:
@@ -1607,11 +1607,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1117361488}
-        m_MethodName: Hello
-        m_Mode: 1
+        m_MethodName: FireButtonResponse
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 797209696}
+          m_ObjectArgumentAssemblyTypeName: ItemCollected, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2536,8 +2536,8 @@ RectTransform:
   - {fileID: 617948876}
   - {fileID: 893914424}
   - {fileID: 1194254244}
-  - {fileID: 563505944}
   - {fileID: 1521820902}
+  - {fileID: 563505944}
   m_Father: {fileID: 1143615165}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2578,7 +2578,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58486e601e9f84a4c933008f625d3ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
 --- !u!1 &799816925
 GameObject:
   m_ObjectHideFlags: 0
@@ -5461,7 +5460,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 797209693}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -5515,7 +5514,7 @@ MonoBehaviour:
         m_MethodName: DeleteItem
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1521820902}
+          m_ObjectArgument: {fileID: 797209693}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
