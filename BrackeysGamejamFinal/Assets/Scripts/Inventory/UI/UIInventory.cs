@@ -38,7 +38,7 @@ public class UIInventory : MonoBehaviour
     private Transform itemSlotTemplate;
     private Transform itemContainer;
 
-    public List<ItemScriptable> itemAssets = new List<ItemScriptable>(); //temporary fix
+    public List<ItemScriptable> itemAssets = new List<ItemScriptable>(); //temporary fix //can be deleted
 
     //to be called from the UI object being declared
     public void DeclareThis<T>(string element, T UIObject)

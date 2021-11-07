@@ -15,11 +15,12 @@ public class UISlotTemplate : UIObject
     {
         if (transform.root.TryGetComponent(out root))
         {
-            if(!transform.parent.GetComponent<UIContainer>())
-
-            root.DeclareThis(Label, this);
+            if (!transform.parent.GetComponent<UIContainer>())
+            {
+                root.DeclareThis(Label, this);
+            }
         }
-
+        
         transform.localScale = Vector3.zero;
     }
 }
