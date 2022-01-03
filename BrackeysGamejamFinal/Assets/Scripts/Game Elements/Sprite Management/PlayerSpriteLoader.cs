@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
-using UnityEditor.Animations;
+//using UnityEditor;
+//using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerSpriteLoader : MonoBehaviour
@@ -96,7 +96,7 @@ public class PlayerSpriteLoader : MonoBehaviour
     public void SetSelection()
     {
         selectedAvatar = Sprites[0];
-        //spriteRenderer.sprite = selectedAvatar;
+        spriteRenderer.sprite = selectedAvatar;
     }
 
     public void ClearSelection()

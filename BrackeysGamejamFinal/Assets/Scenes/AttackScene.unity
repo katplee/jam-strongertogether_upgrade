@@ -497,37 +497,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1547450738}
     m_Modifications:
-    - target: {fileID: 1259100322593549534, guid: b4e31d36be3c8a643b940d826ec891cb,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1259100322593549534, guid: b4e31d36be3c8a643b940d826ec891cb,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1259100322593549534, guid: b4e31d36be3c8a643b940d826ec891cb,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -8240597013396088483, guid: 20e8c484e9b0e0a40ac77fa70fcba6a1,
-        type: 3}
-    - target: {fileID: 1259100322593549534, guid: b4e31d36be3c8a643b940d826ec891cb,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1887522532833673751, guid: b4e31d36be3c8a643b940d826ec891cb,
-        type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1887522532833673751, guid: b4e31d36be3c8a643b940d826ec891cb,
-        type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6283360413482932523, guid: b4e31d36be3c8a643b940d826ec891cb,
         type: 3}
       propertyPath: m_Name
@@ -596,24 +565,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 311493753}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &311493755 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6283360413482932523, guid: b4e31d36be3c8a643b940d826ec891cb,
-    type: 3}
-  m_PrefabInstance: {fileID: 311493753}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &311493756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311493755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee84b00290f7900459a91c8529615904, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &322852927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2001,10 +1952,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32a4411f9dae6264c804662a3477f6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elemName: {fileID: 0}
-  elemLevel: {fileID: 0}
-  elemHP: {fileID: 0}
-  elemArmor: {fileID: 0}
 --- !u!114 &1075593258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2281,10 +2228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32a4411f9dae6264c804662a3477f6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elemName: {fileID: 0}
-  elemLevel: {fileID: 0}
-  elemHP: {fileID: 0}
-  elemArmor: {fileID: 0}
 --- !u!1 &1227779230
 GameObject:
   m_ObjectHideFlags: 0
