@@ -13,7 +13,7 @@ public class EnemySpriteManager : MonoBehaviour
      * spriteLoader
      */
 
-    public static event Action OnTransferComplete;
+    public static event Action<int> OnTransferComplete;
 
     private static EnemySpriteManager instance;
     public static EnemySpriteManager Instance
@@ -46,6 +46,8 @@ public class EnemySpriteManager : MonoBehaviour
     {
         InputParameters();
 
+        int adjustedIndex = (refIndex / animAvailableKeyFrames);
+
         Addressables.LoadAssetAsync<IList<Sprite>>(sheetAddress).Completed += (obj) =>
         {
             if (obj.Result == null)
@@ -58,14 +60,14 @@ public class EnemySpriteManager : MonoBehaviour
             {
                 if (i == animAvailableKeyFrames) { i = 0; }
 
-                animSprites.Enqueue(obj.Result[(refIndex / animAvailableKeyFrames) * animAvailableKeyFrames + i]);
+                animSprites.Enqueue(obj.Result[adjustedIndex * animAvailableKeyFrames]);
 
                 if (animSprites.Count == animKeyFrameCount) { break; }
             }
 
             //assign sprites for animation
             AssignEnemySprites();
-            OnTransferComplete?.Invoke();
+            OnTransferComplete?.Invoke(adjustedIndex);
         };
     }
 

@@ -652,7 +652,7 @@ GameObject:
   - component: {fileID: 246564335}
   - component: {fileID: 246564337}
   - component: {fileID: 246564336}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1018,7 +1018,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 381816425}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.14, y: 1.35, z: 0}
+  m_LocalPosition: {x: 4.15, y: 1.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1149576743}
@@ -2933,7 +2933,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 765066099}
   - {fileID: 2126446960}
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -3001,7 +3000,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &887027767
 GameObject:
@@ -3269,7 +3268,7 @@ GameObject:
   - component: {fileID: 935765488}
   - component: {fileID: 935765490}
   - component: {fileID: 935765489}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3864,6 +3863,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 765066099}
   - {fileID: 1143615165}
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -4136,7 +4136,7 @@ RectTransform:
   - {fileID: 561419138}
   - {fileID: 797209693}
   m_Father: {fileID: 1117361483}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -5768,7 +5768,7 @@ GameObject:
   - component: {fileID: 1729703251}
   - component: {fileID: 1729703250}
   - component: {fileID: 1729703249}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: ContinueButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6620,7 +6620,7 @@ GameObject:
   - component: {fileID: 1963564832}
   - component: {fileID: 1963564831}
   - component: {fileID: 1963564830}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: MainMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6890,7 +6890,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 870609581}
+    m_TransformParent: {fileID: 1117361483}
     m_Modifications:
     - target: {fileID: 9128487963650257422, guid: bcf4d200f104f8f45a1e60aeb45e68cb,
         type: 3}
@@ -6960,17 +6960,17 @@ PrefabInstance:
     - target: {fileID: 9128487963650257422, guid: bcf4d200f104f8f45a1e60aeb45e68cb,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9128487963650257422, guid: bcf4d200f104f8f45a1e60aeb45e68cb,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9128487963650257422, guid: bcf4d200f104f8f45a1e60aeb45e68cb,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9128487963650257422, guid: bcf4d200f104f8f45a1e60aeb45e68cb,
         type: 3}
@@ -7895,7 +7895,7 @@ GameObject:
   - component: {fileID: 2126446960}
   - component: {fileID: 2126446959}
   - component: {fileID: 2126446958}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Pause Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7953,7 +7953,7 @@ RectTransform:
   - {fileID: 935765488}
   - {fileID: 246564335}
   m_Father: {fileID: 870609581}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

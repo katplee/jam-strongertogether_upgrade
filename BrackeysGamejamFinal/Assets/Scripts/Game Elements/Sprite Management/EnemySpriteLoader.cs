@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
-using UnityEditor.Animations;
+//using UnityEditor;
+//using UnityEditor.Animations;
 using UnityEngine;
 
 public class EnemySpriteLoader : MonoBehaviour
@@ -14,11 +14,12 @@ public class EnemySpriteLoader : MonoBehaviour
     private float animKeyFrameRate = 5;
     private Animator animator;
 
-    private EditorCurveBinding spriteBinding = new EditorCurveBinding();
+    //private EditorCurveBinding spriteBinding = new EditorCurveBinding();
     #endregion
 
     #region Avatar/Sprite
     private SpriteRenderer spriteRenderer;
+    private int enemyIndex;
     #endregion
 
    
@@ -40,6 +41,9 @@ public class EnemySpriteLoader : MonoBehaviour
         UnsubscribeEvents();
     }
 
+    /*
+     * Removing all classes referring to the UnityEditor
+     * 
     public void GenerateAnimClip()
     {
         animClip = new AnimationClip();
@@ -74,18 +78,28 @@ public class EnemySpriteLoader : MonoBehaviour
 
         SetAnimation();
     }
+    */
 
-    private void SetAnimation()
+    private void SetAnimation(int enemyIndex)
     {
-        AnimatorController controller = (AnimatorController)animator.runtimeAnimatorController;
-        AnimatorState state = controller.layers[0].stateMachine.states.FirstOrDefault(s => s.state.name.Equals("EnemyAttackReady")).state;
-        controller.SetStateEffectiveMotion(state, animClip);
+        //AnimatorController controller = (AnimatorController)animator.runtimeAnimatorController;
+        //AnimatorState state = controller.layers[0].stateMachine.states.FirstOrDefault(s => s.state.name.Equals("EnemyAttackReady")).state;
+        //controller.SetStateEffectiveMotion(state, animClip);
+
+        this.enemyIndex = enemyIndex;
+
+        //set the animation in the blend tree
+        animator.SetFloat("enemyIndex", enemyIndex);
+        //animate
         animator.SetTrigger("animReady");
+
+        SetAvatar();
     }
 
     public void SetAvatar()
     {
         spriteRenderer.sprite = Sprites[0];
+        Debug.Log(Sprites[0]);
     }
 
     public void GenerateList()
@@ -95,14 +109,16 @@ public class EnemySpriteLoader : MonoBehaviour
 
     private void SubscribeEvents()
     {
-        EnemySpriteManager.OnTransferComplete += GenerateAnimClip;
-        EnemySpriteManager.OnTransferComplete += SetAvatar;
+        //EnemySpriteManager.OnTransferComplete += GenerateAnimClip;
+        //EnemySpriteManager.OnTransferComplete += SetAvatar;
+        EnemySpriteManager.OnTransferComplete += SetAnimation;
     }
 
     private void UnsubscribeEvents()
     {
-        EnemySpriteManager.OnTransferComplete -= GenerateAnimClip;
-        EnemySpriteManager.OnTransferComplete -= SetAvatar;
+        //EnemySpriteManager.OnTransferComplete -= GenerateAnimClip;
+        //EnemySpriteManager.OnTransferComplete -= SetAvatar;
+        EnemySpriteManager.OnTransferComplete -= SetAnimation;
     }
 }
 
