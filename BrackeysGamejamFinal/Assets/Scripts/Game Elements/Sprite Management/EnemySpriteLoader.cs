@@ -73,7 +73,7 @@ public class EnemySpriteLoader : MonoBehaviour
         AnimationUtility.SetObjectReferenceCurve(animClip, spriteBinding, spriteKeyFrames);
 
         AssetDatabase.CreateAsset(animClip, "Assets/Animations & State Machines/Enemy/EnemyAttackReady.anim");
-        AssetDatabase.SaveAssets();
+        AssetDatabase. SaveAssets();
         AssetDatabase.Refresh();
 
         SetAnimation();
@@ -92,14 +92,11 @@ public class EnemySpriteLoader : MonoBehaviour
         animator.SetFloat("enemyIndex", enemyIndex);
         //animate
         animator.SetTrigger("animReady");
-
-        SetAvatar();
     }
 
     public void SetAvatar()
     {
-        spriteRenderer.sprite = Sprites[0];
-        Debug.Log(Sprites[0]);
+        this.GetComponent<SpriteRenderer>().sprite = Sprites[0];
     }
 
     public void GenerateList()

@@ -115,6 +115,7 @@
     <Compile Include="Assets\Scripts\Inventory\Items\ItemNotCollected.cs" />
     <Compile Include="Assets\Scripts\Inventory\Items\Scriptable Objects\ItemScriptable.cs" />
     <Compile Include="Assets\Scripts\Inventory\Stones\PStone.cs" />
+    <Compile Include="Assets\Scripts\Inventory\UI\Debugger.cs" />
     <Compile Include="Assets\Scripts\Inventory\UI\UIContainer.cs" />
     <Compile Include="Assets\Scripts\Inventory\UI\UIInventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\UI\UISlotTemplate.cs" />
