@@ -15,7 +15,7 @@ public class UILevel : UIObject
     {
         text = GetComponent<TMP_Text>();
 
-        if (transform.parent.TryGetComponent(out parent))
+        if(transform.parent.TryGetComponent(out parent))
         {
             parent.DeclareThis(Label, this);
         }
